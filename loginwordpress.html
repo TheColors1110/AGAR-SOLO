@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+</head>
+<body>
+    <script>
+       window.addEventListener("DOMContentLoaded", function() {
+         var currentURL = window.location.href;
+         if (currentURL.includes("access_token")) {
+           console.log("URL hiện tại chứa chuỗi 'access_token'.");
+             var startIndex = currentURL.indexOf("access_token=") + "access_token=".length;
+             var endIndex = currentURL.indexOf("&expires_in") 
+             var accessToken = currentURL.substring(startIndex,endIndex);
+             console.log(accessToken);
+           window.opener.postMessage("(wordpress)" + accessToken, "*");
+           window.opener.myFunction14();
+         } else {
+           console.log("URL hiện tại không chứa chuỗi 'access_token'.");
+         }
+       });
+    </script>
+</body>
+</html>

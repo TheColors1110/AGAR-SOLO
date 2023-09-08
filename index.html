@@ -262,6 +262,14 @@ var url = "https://bitbucket.org/site/oauth2/authorize?client_id=yPupH3DqDxTxUDs
          var top = (screen.height - height) / 2;
          asana = window.open(url, "EmbeddedPopup", "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top); 
         }
+           else if(dame == "instagram"){
+            var url = "https://api.instagram.com/oauth/authorize?client_id=249145720880196&redirect_uri=https://thecolors.id.vn/logininsta.html&scope=instagram_graph_user_profile&response_type=code";
+         var width = 600;
+         var height = 600;
+         var left = (screen.width - width) / 2;
+         var top = (screen.height - height) / 2;
+         insta = window.open(url, "EmbeddedPopup", "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top); 
+        }
     }
       
         function openYANJILoginPopup() {

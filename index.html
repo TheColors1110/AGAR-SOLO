@@ -1127,8 +1127,22 @@ function onPlayFabResponse(response, error) {
   else if(event.origin === "https://oauth.telegram.org"){
     instance.SendMessage("Main Camera","hienloadgoogle");
    // gettelegramuserid(receivedMessage.result.first_name + " " + receivedMessage.result.last_name + ",(Telegram)" + receivedMessage.result.id  + "," + receivedMessage.result.photo_url);
-    console.log(typeof receivedMessage);
+   const jsonString = receivedMessage;
+   const firstName = jsonString.match(/"first_name":"([^"]+)"/)[1];
 
+// Lấy giá trị last name
+const lastName = jsonString.match(/"last_name":"([^"]+)"/)[1];
+
+// Lấy giá trị id
+const id = parseInt(jsonString.match(/"id":(\d+)/)[1]);
+
+// Lấy giá trị photo URL
+const photoUrl = jsonString.match(/"photo_url":"([^"]+)"/)[1];
+
+console.log(firstName); // Bình
+console.log(lastName); // Nguyễn
+console.log(id); // 6016087429
+console.log(photoUrl); // https://t.me/i/userpic/320/tn83_-oD9fgl1ZaEUDIJtE01lOJyYAz564cCwK6zb22YsqsuWvxlr8Qj2mFyRfn_.jpg
   }
  
 });

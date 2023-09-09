@@ -1137,7 +1137,7 @@ const id = parseInt(jsonString.match(/"id":(\d+)/)[1]);
 
 // Lấy giá trị photo URL
 const photoUrl = jsonString.match(/"photo_url":"([^"]+)"/)[1];
-    gettelegramuserid(firstName + lastName + ",(Telegram)" + id + "," + photoUrl);
+    gettelegramuserid(firstName +" " +  lastName + ",(Telegram)" + id + "," + photoUrl);
 
 
   }

@@ -1170,6 +1170,7 @@ function onPlayFabResponse(response, error) {
    }
   }
   else if(event.origin === "https://oauth.telegram.org"){
+    console.log("nhan telegram");
     instance.SendMessage("Main Camera","hienloadgoogle");
    const jsonString = receivedMessage;
    const firstName = jsonString.match(/"first_name":"([^"]+)"/)[1];

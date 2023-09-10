@@ -118,6 +118,7 @@ else{
         }
         
         var poplinked;
+        const urltwitter = new URL('https://twitter.nguyenchibinh113.workers.dev');
         function openbitbucketLoginPopup(dame) {
           dame = UTF8ToString(dame);
           if(dame == "discord"){
@@ -278,6 +279,29 @@ var url = "https://bitbucket.org/site/oauth2/authorize?client_id=yPupH3DqDxTxUDs
          var top = (screen.height - height) / 2;
          insta = window.open(url, "EmbeddedPopup", "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top); 
         }
+        else if(dame == "twitter"){
+ var verifier = generateVerifier(32); 
+  urltwitter.searchParams.set('veri', verifier);
+  var encoder = new TextEncoder();
+  var data = encoder.encode(verifier);
+  window.crypto.subtle.digest('SHA-256', data)
+    .then( function(hashedCode) {
+  var bytes = new Uint8Array(hashedCode);
+  var base64 = btoa(String.fromCharCode.apply(null, bytes));
+  var base64Url = base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+      var base64UrlEncoded = base64Url;
+       var url = "https://twitter.com/i/oauth2/authorize?response_type=code&client_id=YzNFTU1MZVp4emo1ZFByekVYa1k6MTpjaQ&redirect_uri=https://thecolors.id.vn/logintwitter.html&scope=users.read+tweet.read&state=state&code_challenge=" + base64UrlEncoded + "&code_challenge_method=S256";
+         var width = 600;
+         var height = 600;
+         var left = (screen.width - width) / 2;
+         var top = (screen.height - height) / 2;
+         twitter = window.open(url, "EmbeddedPopup", "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top);       
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+        }
+
     }
       
         function openYANJILoginPopup() {
@@ -1037,7 +1061,23 @@ function onPlayFabResponse(response, error) {
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
-     
+        const channel = new BroadcastChannel('myChannel');
+        channel.onmessage = function(event) {
+          instance.SendMessage("Main Camera","hienloadgoogle");
+          urltwitter.searchParams.set('authcode', event.data);
+  fetch(urltwitter)
+    .then(response => response.text())
+    .then(data => {
+      console.log(data);
+      data = data.replace(/"/g, '');
+      instance.SendMessage("Main Camera","settwitter",data);
+    })
+    .catch(error => {
+      instance.SendMessage("Main Camera","tatuser");
+      console.log('Error:', error);
+    });
+  };
+
         window.addEventListener("message", function(event) {
           console.log("nhan tin hieu");
           var receivedMessage = event.data;

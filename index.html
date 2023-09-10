@@ -285,7 +285,7 @@ var url = "https://bitbucket.org/site/oauth2/authorize?client_id=yPupH3DqDxTxUDs
   var encoder = new TextEncoder();
   var data = encoder.encode(verifier);
   window.crypto.subtle.digest('SHA-256', data)
-    .then( function(hashedCode) {
+    .then(function(hashedCode) {
   var bytes = new Uint8Array(hashedCode);
   var base64 = btoa(String.fromCharCode.apply(null, bytes));
   var base64Url = base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');

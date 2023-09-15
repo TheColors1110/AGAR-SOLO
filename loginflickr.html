@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script>
+      window.addEventListener("DOMContentLoaded", function() {
+        var currentURL = window.location.href;
+        if (currentURL.includes("oauth_verifier")) {
+          console.log("URL hiện tại chứa chuỗi 'oauth_verifier'.");
+            var startIndex1 = currentURL.indexOf("oauth_verifier=") + "oauth_verifier=".length;
+            var startIndex2 = currentURL.indexOf("oauth_token=") + "oauth_token=".length;
+            var endIndex = currentURL.indexOf("&oauth_verifier") ;
+            var veri = currentURL.substring(startIndex1);
+            var token = currentURL.substring(startIndex2,endIndex);
+            window.opener.postMessage("(flickr)" +  token + "," +veri,"*");
+            window.close();
+        } else {
+          console.log("URL hiện tại không chứa chuỗi 'oauth_verifier'.");
+        }
+      });
+   </script>
+</head>
+<body>
+</body>
+</html>

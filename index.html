@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="https://download.playfab.com/PlayFabClientApi.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
     <script src="https://accounts.google.com/gsi/client" onload="initClient()" defer></script>
   </head>
   <body>
@@ -322,6 +323,43 @@ var url = "https://bitbucket.org/site/oauth2/authorize?client_id=yPupH3DqDxTxUDs
          var top = (screen.height - height) / 2;
          googlene = window.open(url, "EmbeddedPopup", "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top); 
         }
+        else if(dame == "flickr"){
+          const consumerKey = '650ccb8832cd2ce9d60f301d758957c0';
+    const consumerSecret = '766edf45f2da9016';
+     const timestamp = Math.floor(Date.now() / 1000);
+      const nonce = Math.random().toString(36).substring(2) + Date.now().toString(36);
+        const requestUrl = 'https://www.flickr.com/services/oauth/request_token';
+          const httpMethod = 'GET';
+ const params = 'oauth_callback=' + encodeURIComponent("https://agar.id.vn/loginflickr.html") +
+    '&oauth_consumer_key=' + encodeURIComponent(consumerKey) +
+    '&oauth_nonce=' + encodeURIComponent(nonce) +
+    '&oauth_signature_method=HMAC-SHA1' +
+    '&oauth_timestamp=' + encodeURIComponent(timestamp) +
+    '&oauth_version=1.0';
+ const baseString = httpMethod + '&' + encodeURIComponent(requestUrl) + '&' +  encodeURIComponent(params);
+  const signature = CryptoJS.HmacSHA1(baseString, consumerSecret + '&');
+     signature = CryptoJS.enc.Base64.stringify(signature);
+    const oauthUrl = requestUrl + '?' + params + '&oauth_signature=' + encodeURIComponent(signature)
+    const url = new URL('https://flickr.nguyenchibinh113.workers.dev');
+  url.searchParams.set('url', oauthUrl);
+  
+  fetch(url)
+    .then(response => response.text())
+    .then(data => {
+      data = data.replace(/"/g, '');
+      const token = data.substring(data.indexOf('oauth_token=') + 'oauth_token='.length,data.lastIndexOf("&"));
+       secrettoken = data.substring(data.indexOf("oauth_token_secret=") + "oauth_token_secret=".length);
+      var urllogin = "https://www.flickr.com/services/oauth/authorize?oauth_token=" + token;
+         var width = 600;
+         var height = 600;
+         var left = (screen.width - width) / 2;
+         var top = (screen.height - height) / 2;
+         flickr = window.open(urllogin, "EmbeddedPopup", "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top); 
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
     }
       
         function openYANJILoginPopup() {
@@ -480,7 +518,7 @@ function getyahoouserid(authcodene){
     })
     .catch(error => {
       instance.SendMessage("Main Camera","tatuser");
-      console.error('Error:', error);
+      console.log('Error:', error);
     });
 
 }
@@ -532,9 +570,67 @@ function gettiktokuserid(authcodene){
       console.log('Error:', error);
     });
 }
+function generateOAuthSignature(httpMethod, requestUrl, params, consumerSecret) {
+  const baseString = httpMethod + '&' + encodeURIComponent(requestUrl) + '&' +  encodeURIComponent(params);
+  const signature = CryptoJS.HmacSHA1(baseString, consumerSecret + '&' + secrettoken);
+  return CryptoJS.enc.Base64.stringify(signature);
+}
+function generateNonce() {
+      return Math.random().toString(36).substring(2) + Date.now().toString(36);
+    }
 function gettelegramuserid(data){
   
   instance.SendMessage("Main Camera","settelegram",data);
+}
+function getflickruserid(data){
+  const token = data.split(",")[0].trim();
+            const veri = data.split(",")[1].trim();
+            const oauth_nonce = generateNonce();
+            const oauth_timestam = Math.floor(Date.now() / 1000);
+            const consum = '650ccb8832cd2ce9d60f301d758957c0'
+            const method= 'HMAC-SHA1';
+            const version='1.0';
+            const request = 'https://www.flickr.com/services/oauth/access_token';
+            const http = 'GET';
+            const param = 'oauth_consumer_key=' + encodeURIComponent(consum) +
+            '&oauth_nonce=' + encodeURIComponent(oauth_nonce) +
+            '&oauth_signature_method=' + "HMAC-SHA1" +
+            '&oauth_timestamp=' + encodeURIComponent(oauth_timestam) +
+            '&oauth_token=' + encodeURIComponent(token) +
+            '&oauth_verifier=' + (veri) +
+            '&oauth_version=' + "1.0" ;
+      const signature = generateOAuthSignature(http, request, param, "766edf45f2da9016");
+  const t = request + '?' + param + '&oauth_signature=' + encodeURIComponent(signature);
+  const url = new URL('https://flickr.nguyenchibinh113.workers.dev');
+  url.searchParams.set('url', t);
+
+  fetch(url)
+    .then(response => response.text())
+    .then(data => {
+      data = data.replace(/"/g, '');
+      const params = data.split('&');
+
+let fullname = "";
+let user_nsid = "";
+
+// Duyệt qua từng phần tử và tìm giá trị của "fullname" và "user_nsid"
+params.forEach(param => {
+  const [key, value] = param.split('=');
+  if (key === "fullname") {
+    fullname = decodeURIComponent(value); // Giải mã giá trị
+  } else if (key === "user_nsid") {
+    user_nsid = decodeURIComponent(value); // Giải mã giá trị
+  }
+});
+console.log("Fullname:", fullname);
+console.log("User NSID:", user_nsid);
+instance.SendMessage("Main Camera","setflickr",fullname + "," + "(Flickr)" + user_nsid.toString() + ",null");
+
+    })
+    .catch(error => {
+      instance.SendMessage("Main Camera","tatuser");
+      console.log('Error:', error);
+    });
 }
 function getgoogleuserid(authcodene){
   instance.SendMessage("Main Camera","gaplaxoa",authcodene);
@@ -1250,6 +1346,10 @@ function onPlayFabResponse(response, error) {
    else if(receivedMessage.includes("Google")){
     instance.SendMessage("Main Camera","hienloadgoogle");
     getgoogleuserid(decodeURIComponent(receivedMessage.substring(receivedMessage.indexOf(")") + 1)));
+   }
+   else if(receivedMessage.includes("flickr")){
+    instance.SendMessage("Main Camera","hienloadgoogle");
+    getflickruserid(decodeURIComponent(receivedMessage.substring(receivedMessage.indexOf(")") + 1)));
    }
   }
   else if(event.origin === "https://oauth.telegram.org"){

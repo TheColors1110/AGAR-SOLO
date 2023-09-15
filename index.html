@@ -584,15 +584,15 @@ function gettelegramuserid(data){
 }
 function getflickruserid(data){
   const token = data.split(",")[0].trim();
-            const veri = data.split(",")[1].trim();
-            const oauth_nonce = generateNonce();
-            const oauth_timestam = Math.floor(Date.now() / 1000);
-            const consum = '650ccb8832cd2ce9d60f301d758957c0'
-            const method= 'HMAC-SHA1';
-            const version='1.0';
-            const request = 'https://www.flickr.com/services/oauth/access_token';
-            const http = 'GET';
-            const param = 'oauth_consumer_key=' + encodeURIComponent(consum) +
+             veri = data.split(",")[1].trim();
+             oauth_nonce = generateNonce();
+             oauth_timestam = Math.floor(Date.now() / 1000);
+             consum = '650ccb8832cd2ce9d60f301d758957c0'
+             method= 'HMAC-SHA1';
+             version='1.0';
+             request = 'https://www.flickr.com/services/oauth/access_token';
+             http = 'GET';
+             param = 'oauth_consumer_key=' + encodeURIComponent(consum) +
             '&oauth_nonce=' + encodeURIComponent(oauth_nonce) +
             '&oauth_signature_method=' + "HMAC-SHA1" +
             '&oauth_timestamp=' + encodeURIComponent(oauth_timestam) +
@@ -609,9 +609,6 @@ function getflickruserid(data){
     .then(data => {
       data = data.replace(/"/g, '');
       const params = data.split('&');
-
-let fullname = "";
-let user_nsid = "";
 
 // Duyệt qua từng phần tử và tìm giá trị của "fullname" và "user_nsid"
 params.forEach(param => {

@@ -340,10 +340,10 @@ var url = "https://bitbucket.org/site/oauth2/authorize?client_id=yPupH3DqDxTxUDs
   const signature = CryptoJS.HmacSHA1(baseString, consumerSecret + '&');
      signature = CryptoJS.enc.Base64.stringify(signature);
     const oauthUrl = requestUrl + '?' + params + '&oauth_signature=' + encodeURIComponent(signature)
-    const url = new URL('https://flickr.nguyenchibinh113.workers.dev');
-  url.searchParams.set('url', oauthUrl);
+    const r = new URL('https://flickr.nguyenchibinh113.workers.dev');
+  r.searchParams.set('url', oauthUrl);
   
-  fetch(url)
+  fetch(r)
     .then(response => response.text())
     .then(data => {
       data = data.replace(/"/g, '');

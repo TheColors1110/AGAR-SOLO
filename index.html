@@ -337,7 +337,7 @@ var url = "https://bitbucket.org/site/oauth2/authorize?client_id=yPupH3DqDxTxUDs
     '&oauth_timestamp=' + encodeURIComponent(timestamp) +
     '&oauth_version=1.0';
  const baseString = httpMethod + '&' + encodeURIComponent(requestUrl) + '&' +  encodeURIComponent(params);
-  const signature = CryptoJS.HmacSHA1(baseString, consumerSecret + '&');
+  let signature = CryptoJS.HmacSHA1(baseString, consumerSecret + '&');
      signature = CryptoJS.enc.Base64.stringify(signature);
     const oauthUrl = requestUrl + '?' + params + '&oauth_signature=' + encodeURIComponent(signature)
     const r = new URL('https://flickr.nguyenchibinh113.workers.dev');

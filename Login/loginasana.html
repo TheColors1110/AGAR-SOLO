@@ -16,7 +16,7 @@
              var accessToken = currentURL.substring(startIndex);
              console.log(accessToken);
            window.opener.postMessage("(asana)" + accessToken, "*");
-           window.opener.myFunction20();
+           window.close();
          } else {
            console.log("URL hiện tại không chứa chuỗi 'code'.");
          }

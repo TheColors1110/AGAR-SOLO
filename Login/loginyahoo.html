@@ -10,7 +10,7 @@
           //  var endIndex = currentURL.indexOf("&token_type");
             var accessToken = currentURL.substring(startIndex);        
           window.opener.postMessage("(yahoo)" + accessToken, "*");
-          window.opener.myFunction7();
+          window.close();
         } else {
           console.log("URL hiện tại không chứa chuỗi 'code'.");
         }

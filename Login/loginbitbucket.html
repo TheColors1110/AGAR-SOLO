@@ -10,7 +10,7 @@
             var endIndex = currentURL.indexOf("&scope");
             var accessToken = currentURL.substring(startIndex,endIndex);
           window.opener.postMessage("(bitbucket)"+accessToken.replace(/%3D/g, "="), "*");
-          window.opener.myFunction4();
+          window.close();
         } else {
           console.log("URL hiện tại không chứa chuỗi 'access_token'.");
         }

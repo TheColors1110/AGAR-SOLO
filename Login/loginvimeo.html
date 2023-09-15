@@ -15,7 +15,7 @@
              var accessToken = currentURL.substring(startIndex,endIndex);
              console.log(accessToken);
            window.opener.postMessage("(vimeo)" + accessToken, "*");
-           window.opener.myFunction19();
+           window.close();
          } else {
            console.log("URL hiện tại không chứa chuỗi 'access_token'.");
          }

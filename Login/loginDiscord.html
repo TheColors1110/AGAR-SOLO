@@ -10,7 +10,7 @@
             var endindex = currentURL.indexOf("&expires_in")
             var accessToken = currentURL.substring(startIndex,endindex);
           window.opener.postMessage("(discord)" + accessToken, "*");
-          window.opener.myFunction5();
+          window.close();
         } else {
           console.log("URL hiện tại không chứa chuỗi 'token'.");
         }

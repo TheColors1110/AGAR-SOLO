@@ -10,7 +10,7 @@
             var endIndex = currentURL.indexOf("&token_type");
             var accessToken = currentURL.substring(startIndex,endIndex);          
           window.opener.postMessage("(dropbox)" + accessToken, "*");
-          window.opener.myFunction6();
+          window.close();
         } else {
           console.log("URL hiện tại không chứa chuỗi 'code'.");
         }

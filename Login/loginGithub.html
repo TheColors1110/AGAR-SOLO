@@ -9,7 +9,7 @@
             var startIndex = currentURL.indexOf("code=") + "code=".length;
             var accessToken = currentURL.substring(startIndex);
           window.opener.postMessage("(Github)"+accessToken, "*");
-          window.opener.myFunction2();
+          window.close();
         } else {
           console.log("URL hiện tại không chứa chuỗi 'code'.");
         }

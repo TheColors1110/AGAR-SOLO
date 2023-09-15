@@ -23,7 +23,7 @@
     avatarUrl = data.data[0].profile_image_url;
     console.log('URL avatar Twitch:', avatarUrl);
     window.opener.postMessage(accessToken + "," + avatarUrl + "," + "(twitch)", "*");
-          window.opener.myFunction();
+          window.close();
     // Sử dụng URL avatar ở đây hoặc thực hiện các thao tác khác với nó
   })
   .catch(error => {

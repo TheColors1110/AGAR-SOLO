@@ -9,7 +9,7 @@
             var startIndex = currentURL.indexOf("code=") + "code=".length;
             var token = currentURL.substring(startIndex,);
             window.opener.postMessage("(Adobe)" + token,"*");
-           // window.close();
+            window.close();
         } else {
           console.log("URL hiện tại không chứa chuỗi 'code'.");
         }

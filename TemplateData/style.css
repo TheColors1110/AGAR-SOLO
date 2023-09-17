@@ -16,11 +16,9 @@ body {
 }
 
 #unity-canvas {
-    background-image: url('ha.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 15px;
-    border: 5px solid #000000;
+        background: #2FB4FF;
+  border-radius: 15px;
+   /* border: 1px solid #000000; */
 }
 
 .unity-mobile #unity-canvas {

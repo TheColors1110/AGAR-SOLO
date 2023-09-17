@@ -34,25 +34,19 @@ body {
   }
   
   #unity-progress-bar-empty {
-    width: 141px;
-    height: 18px;
+    width: 120px;
+    height: 120px;
     margin-top: 10px;
     margin-left: 6.5px;
-    background: url("progress-bar-empty-dark.png") no-repeat center;
+    border: 8px solid #ddd;
+    border-top-color: #3498db;
+    border-radius: 50%;
+    animation: progress-rotate 2s linear infinite;
   }
   
-  #unity-progress-bar-full {
-    width: 0%;
-    height: 18px;
-    margin-top: 10px;
-    background: url("progress-bar-full-dark.png") no-repeat center;
-    animation: progress-fill 3s ease-in-out infinite;
-  }
-  
-  @keyframes progress-fill {
-    0% { width: 0%; }
-    50% { width: 50%; }
-    100% { width: 100%; }
+  @keyframes progress-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
   /* #unity-logo {
     top: 50%;

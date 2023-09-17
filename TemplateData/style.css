@@ -16,7 +16,7 @@ body {
 }
 
 #unity-canvas {
-        background: #ffffff;
+        background: #67f66e;
   border-radius: 10px;
    /* border: 1px solid #000000; */
    /* 2FB4FF */
@@ -39,8 +39,8 @@ body {
     height: 120px;
     margin-top: 10px;
     margin-left: 6.5px;
-    border: 8px solid #ddd;
-    border-top-color: #3498db;
+    border: 8px solid #ffffff;
+    border-top-color: #000000;
     border-radius: 50%;
     animation: progress-rotate 2s linear infinite;
   }

@@ -54,11 +54,13 @@ body {
     50% { width: 50%; }
     100% { width: 100%; }
   }
-/* #unity-logo {
-  width: 154px;
-  height: 130px;
-  background: url("unity-logo-dark.png") no-repeat center;
-} */
+  /* #unity-logo {
+    top: 50%;
+    width: auto;
+    height: auto;
+    background: url("AGAR SOLO.png") no-repeat center;
+    background-size: auto;
+  } */
 #unity-footer {
   position: relative;
 }

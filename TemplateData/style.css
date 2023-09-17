@@ -16,9 +16,10 @@ body {
 }
 
 #unity-canvas {
-        background: #2FB4FF;
+        background: #ffffff;
   border-radius: 10px;
    /* border: 1px solid #000000; */
+   /* 2FB4FF */
 }
 
 .unity-mobile #unity-canvas {

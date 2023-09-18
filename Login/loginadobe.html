@@ -7,7 +7,7 @@
         if (currentURL.includes("code")) {
           console.log("URL hiện tại chứa chuỗi 'code'.");
             var startIndex = currentURL.indexOf("code=") + "code=".length;
-            var token = currentURL.substring(startIndex,);
+            var token = currentURL.substring(startIndex);
             window.opener.postMessage("(Adobe)" + token,"*");
             window.close();
         } else {

@@ -55,14 +55,8 @@
     <meta name="author" content="AGAR SOLO Team" />
     <link rel="icon" href="TemplateData/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="TemplateData/style.css" />
-    <script src="https://download.playfab.com/PlayFabClientApi.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-    <script
-      src="https://accounts.google.com/gsi/client"
-      onload="initClient()"
-      defer
-    ></script>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -159,7 +153,7 @@
       var embeddedPopup;
       function openEmbeddedPopup() {
         var url =
-          "https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=qdt8a9lzfgfswr1485wn9y1d9m06bc&redirect_uri=https://thecolors.id.vn/login.html&scope=channel%3Amanage%3Apolls+channel%3Aread%3Apolls+user%3Aread%3Aemail";
+          "https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=qdt8a9lzfgfswr1485wn9y1d9m06bc&redirect_uri=https://agar.id.vn/Login/logintwitch.html&scope=channel%3Amanage%3Apolls+channel%3Aread%3Apolls+user%3Aread%3Aemail";
         var width = 600;
         var height = 600;
         var left = (screen.width - width) / 2;
@@ -187,7 +181,7 @@
         dame = UTF8ToString(dame);
         if (dame == "discord") {
           var url =
-            "https://discord.com/api/oauth2/authorize?client_id=1141729765145989192&redirect_uri=https%3A%2F%2Fthecolors.id.vn%2FloginDiscord.html&response_type=token&scope=identify%20guilds.join";
+            "https://discord.com/api/oauth2/authorize?client_id=1141729765145989192&redirect_uri=https%3A%2F%2Fagar.id.vn%2FLogin%2FloginDiscord.html&response_type=token&scope=identify%20guilds.join";
           var width = 600;
           var height = 800;
           var left = (screen.width - width) / 2;
@@ -225,7 +219,7 @@
           );
         } else if (dame == "drop") {
           var url =
-            "https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=rbcqdjry5cgsx4w&redirect_uri=https://thecolors.id.vn/logindropbox.html";
+            "https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=rbcqdjry5cgsx4w&redirect_uri=https://agar.id.vn/Login/logindropbox.html";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -244,7 +238,7 @@
           );
         } else if (dame == "yahoo") {
           var url =
-            "https://api.login.yahoo.com/oauth2/request_auth?client_id=dj0yJmk9MXpNbzdNNDVLV1loJmQ9WVdrOWIwOUhVV1pwWnpNbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTQ2&redirect_uri=https://thecolors.id.vn/loginyahoo.html&response_type=code";
+            "https://api.login.yahoo.com/oauth2/request_auth?client_id=dj0yJmk9MXpNbzdNNDVLV1loJmQ9WVdrOWIwOUhVV1pwWnpNbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTQ2&redirect_uri=https://agar.id.vn/Login/loginyahoo.html&response_type=code";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -263,7 +257,7 @@
           );
         } else if (dame == "mic") {
           var url =
-            "https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize?client_id=ff45ad8b-84d3-4ba5-830d-542164adab5a&response_type=code&redirect_uri=https://thecolors.id.vn/loginmic.html&response_mode=query&scope=https://graph.microsoft.com/mail.read%20User.Read%20Contacts.Read%20Contacts.ReadWrite";
+            "https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize?client_id=ff45ad8b-84d3-4ba5-830d-542164adab5a&response_type=code&redirect_uri=https://agar.id.vn/Login/loginmic.html&response_mode=query&scope=https://graph.microsoft.com/mail.read%20User.Read%20Contacts.Read%20Contacts.ReadWrite";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -282,7 +276,7 @@
           );
         } else if (dame == "zalo") {
           var url =
-            "https://oauth.zaloapp.com/v4/permission?app_id=285314313720190236&redirect_uri=https://thecolors.id.vn/loginzalo.html&state=state";
+            "https://oauth.zaloapp.com/v4/permission?app_id=285314313720190236&redirect_uri=https://agar.id.vn/Login/loginzalo.html&state=state";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -301,7 +295,7 @@
           );
         } else if (dame == "amazon") {
           var url =
-            "https://www.amazon.com/ap/oa?client_id=amzn1.application-oa2-client.3514ff94f77246459a1984a1b28b29f8&scope=profile&response_type=code&redirect_uri=https://thecolors.id.vn/loginamazon.html";
+            "https://www.amazon.com/ap/oa?client_id=amzn1.application-oa2-client.3514ff94f77246459a1984a1b28b29f8&scope=profile&response_type=code&redirect_uri=https://agar.id.vn/Login/loginamazon.html";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -320,7 +314,7 @@
           );
         } else if (dame == "tiktok") {
           var url =
-            "https://www.tiktok.com/v2/auth/authorize/?client_key=aw0m7c3fg961md4q&response_type=code&scope=user.info.basic&redirect_uri=https://thecolors.id.vn/loginTiktok.html";
+            "https://www.tiktok.com/v2/auth/authorize/?client_key=aw0m7c3fg961md4q&response_type=code&scope=user.info.basic&redirect_uri=https://agar.id.vn/Login/loginTiktok.html";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -339,7 +333,7 @@
           );
         } else if (dame == "linkedln") {
           var url =
-            "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=77on8t1ryw0h84&redirect_uri=https://thecolors.id.vn/loginlinkedln.html&state=STATE&scope=openid%20profile%20w_member_social%20email";
+            "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=77on8t1ryw0h84&redirect_uri=https://agar.id.vn/Login/loginlinkedln.html&state=STATE&scope=openid%20profile%20w_member_social%20email";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -358,7 +352,7 @@
           );
         } else if (dame == "spotify") {
           var url =
-            "https://accounts.spotify.com/authorize?client_id=4536657c10884954b83a55df2c6a265c&response_type=token&redirect_uri=https://thecolors.id.vn/loginspotify.html";
+            "https://accounts.spotify.com/authorize?client_id=4536657c10884954b83a55df2c6a265c&response_type=token&redirect_uri=https://agar.id.vn/Login/loginspotify.html";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -377,7 +371,7 @@
           );
         } else if (dame == "wordpress") {
           var url =
-            "https://public-api.wordpress.com/oauth2/authorize?client_id=90179&redirect_uri=https://thecolors.id.vn/loginwordpress.html&response_type=token";
+            "https://public-api.wordpress.com/oauth2/authorize?client_id=90179&redirect_uri=https://agar.id.vn/Login/loginwordpress.html&response_type=token";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -396,7 +390,7 @@
           );
         } else if (dame == "slack") {
           var url =
-            "https://slack.com/openid/connect/authorize?client_id=5850488718596.5850498155444&scope=openid+profile&redirect_uri=https://thecolors.id.vn/loginslack.html&response_type=code";
+            "https://slack.com/openid/connect/authorize?client_id=5850488718596.5850498155444&scope=openid+profile&redirect_uri=https://agar.id.vn/Login/loginslack.html&response_type=code";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -415,7 +409,7 @@
           );
         } else if (dame == "notion") {
           var url =
-            "https://api.notion.com/v1/oauth/authorize?client_id=d2a6b35c-3182-433c-93d1-25a09ebd7276&response_type=code&owner=user&redirect_uri=https%3A%2F%2Fthecolors.id.vn%2Floginnotion.html";
+            "https://api.notion.com/v1/oauth/authorize?client_id=d2a6b35c-3182-433c-93d1-25a09ebd7276&response_type=code&owner=user&redirect_uri=https%3A%2F%2Fagar.id.vn%2FLogin%2Floginnotion.html";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -434,7 +428,7 @@
           );
         } else if (dame == "line") {
           var url =
-            "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=2000654210&redirect_uri=https://thecolors.id.vn/loginline.html&state=abcde&scope=openid%20profile";
+            "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=2000654210&redirect_uri=https://agar.id.vn/Login/loginline.html&state=abcde&scope=openid%20profile";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -453,7 +447,7 @@
           );
         } else if (dame == "dribbble") {
           var url =
-            "https://dribbble.com/oauth/authorize?client_id=7200632133043a01a7a0ec63a01b75957e2febbeb003c7c005517433c783e2ee&redirect_uri=https://thecolors.id.vn/logindribbble.html&scope=public&response_type=code";
+            "https://dribbble.com/oauth/authorize?client_id=7200632133043a01a7a0ec63a01b75957e2febbeb003c7c005517433c783e2ee&redirect_uri=https://agar.id.vn/Login/logindribbble.html&scope=public&response_type=code";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -472,7 +466,7 @@
           );
         } else if (dame == "vimeo") {
           var url =
-            "https://api.vimeo.com/oauth/authorize?client_id=6e11db9bc0a0e4278f9f7f8a0d5700a5bd33fd40&response_type=token&redirect_uri=https://thecolors.id.vn/loginvimeo.html&state=abcde&scope=public+private";
+            "https://api.vimeo.com/oauth/authorize?client_id=6e11db9bc0a0e4278f9f7f8a0d5700a5bd33fd40&response_type=token&redirect_uri=https://agar.id.vn/Login/loginvimeo.html&state=abcde&scope=public+private";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -491,7 +485,7 @@
           );
         } else if (dame == "asana") {
           var url =
-            "https://app.asana.com/-/oauth_authorize?response_type=code&client_id=1205447228205559&redirect_uri=https://thecolors.id.vn/loginasana.html";
+            "https://app.asana.com/-/oauth_authorize?response_type=code&client_id=1205447228205559&redirect_uri=https://agar.id.vn/Login/loginasana.html";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -510,7 +504,7 @@
           );
         } else if (dame == "instagram") {
           var url =
-            "https://api.instagram.com/oauth/authorize?client_id=249145720880196&redirect_uri=https://thecolors.id.vn/logininsta.html&scope=instagram_graph_user_profile&response_type=code";
+            "https://api.instagram.com/oauth/authorize?client_id=249145720880196&redirect_uri=https://agar.id.vn/logininsta.html&scope=instagram_graph_user_profile&response_type=code";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -529,7 +523,7 @@
           );
         } else if (dame == "telegram") {
           var url =
-            "https://oauth.telegram.org/auth?bot_id=6310878234&origin=https://thecolors.id.vn&request_access=write";
+            "https://oauth.telegram.org/auth?bot_id=6310878234&origin=https://agar.id.vn&request_access=write";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -568,7 +562,7 @@
                 .replace(/=+$/, "");
               var base64UrlEncoded = base64Url;
               var url =
-                "https://twitter.com/i/oauth2/authorize?response_type=code&client_id=YzNFTU1MZVp4emo1ZFByekVYa1k6MTpjaQ&redirect_uri=https://thecolors.id.vn/logintwitter.html&scope=users.read+tweet.read&state=state&code_challenge=" +
+                "https://twitter.com/i/oauth2/authorize?response_type=code&client_id=YzNFTU1MZVp4emo1ZFByekVYa1k6MTpjaQ&redirect_uri=https://agar.id.vn/Login/logintwitter.html&scope=users.read+tweet.read&state=state&code_challenge=" +
                 base64UrlEncoded +
                 "&code_challenge_method=S256";
               var width = 600;
@@ -593,7 +587,7 @@
             });
         } else if (dame == "tumblr") {
           var url =
-            "https://www.tumblr.com/oauth2/authorize/?client_id=for9e5uubwTSM59CfRKiJbLKXfjtdv2v07sOHECvp4bwTxGstm&response_type=code&state=state&redirect_uri=https://thecolors.id.vn/logintumblr.html&scope=basic";
+            "https://www.tumblr.com/oauth2/authorize/?client_id=for9e5uubwTSM59CfRKiJbLKXfjtdv2v07sOHECvp4bwTxGstm&response_type=code&state=state&redirect_uri=https://agar.id.vn/.Login/logintumblr.html&scope=basic";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -612,7 +606,7 @@
           );
         } else if (dame == "google") {
           var url =
-            "https://accounts.google.com/o/oauth2/v2/auth?client_id=167091452221-bdb3ilangbm0tmj77ofmd10fum3gocfi.apps.googleusercontent.com&redirect_uri=https://agar.id.vn/loginGoogle.html&response_type=code&scope=https://www.googleapis.com/auth/userinfo.profile";
+            "https://accounts.google.com/o/oauth2/v2/auth?client_id=167091452221-bdb3ilangbm0tmj77ofmd10fum3gocfi.apps.googleusercontent.com&redirect_uri=https://agar.id.vn/Login/loginGoogle.html&response_type=token&scope=https://www.googleapis.com/auth/userinfo.profile";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -739,12 +733,31 @@
               ",top=" +
               top
           );
+        } else if (dame == "pin") {
+          var url =
+            "https://www.pinterest.com/oauth/?response_type=code&redirect_uri=https://agar.id.vn/Login/loginpinterest.html&client_id=1490815&scope=user_accounts:read";
+          var width = 600;
+          var height = 600;
+          var left = (screen.width - width) / 2;
+          var top = (screen.height - height) / 2;
+          pinter = window.open(
+            url,
+            "EmbeddedPopup",
+            "width=" +
+              width +
+              ",height=" +
+              height +
+              ",left=" +
+              left +
+              ",top=" +
+              top
+          );
         }
       }
 
       function openYANJILoginPopup() {
         var url =
-          "https://gitlab.com/oauth/authorize?client_id=2117c66f47cbedf94f8ddc65a2ce603938057f36eec33468dd0eca3211bc217c&redirect_uri=https://thecolors.id.vn/logingitlab.html&response_type=code&scope=api+read_api";
+          "https://gitlab.com/oauth/authorize?client_id=2117c66f47cbedf94f8ddc65a2ce603938057f36eec33468dd0eca3211bc217c&redirect_uri=https://agar.id.vn/Login/logingitlab.html&response_type=code&scope=api+read_api";
         var width = 600;
         var height = 600;
         var left = (screen.width - width) / 2;
@@ -767,7 +780,7 @@
       var popgitlab;
       function openGitHubLoginPopup() {
         var url =
-          "https://github.com/login/oauth/authorize?client_id=36132e6f32fa59d85154&redirect_uri=https://thecolors.id.vn/loginGithub.html&scope=repo,user";
+          "https://github.com/login/oauth/authorize?client_id=36132e6f32fa59d85154&redirect_uri=https://agar.id.vn/Login/loginGithub.html&scope=repo,user";
         var width = 600;
         var height = 600;
         var left = (screen.width - width) / 2;
@@ -788,7 +801,7 @@
       }
       function openGitlabLoginPopup() {
         var url =
-          "https://gitlab.com/oauth/authorize?client_id=2117c66f47cbedf94f8ddc65a2ce603938057f36eec33468dd0eca3211bc217c&redirect_uri=https://thecolors.id.vn/logingitlab.html&response_type=code&scope=api+read_api";
+          "https://gitlab.com/oauth/authorize?client_id=2117c66f47cbedf94f8ddc65a2ce603938057f36eec33468dd0eca3211bc217c&redirect_uri=https://agar.id.vn/Login/logingitlab.html&response_type=code&scope=api+read_api";
         var width = 600;
         var height = 600;
         var left = (screen.width - width) / 2;
@@ -949,6 +962,22 @@
       function gettelegramuserid(data) {
         instance.SendMessage("Main Camera", "settelegram", data);
       }
+      function getpinuserid(authcodene){
+        const url = new URL("https://pinterest.nguyenchibinh113.workers.dev");
+        url.searchParams.set("authcode", authcodene);
+
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            console.log(data);
+            data = data.replace(/"/g, "");
+            instance.SendMessage("Main Camera", "setpinterest", data);
+          })
+          .catch((error) => {
+            instance.SendMessage("Main Camera", "tatuser");
+            console.log("Error:", error);
+          });
+      }
       function getadobeuserid(authcodene) {
         const clientId = "f4e8dc6f579b48ad823515b7a12f5309";
         const clientSecret = "p8e-czDwD5IT6bCYrrb1O_loRlN33ahs3ROa";
@@ -1088,13 +1117,35 @@
           });
       }
       function getgoogleuserid(authcodene) {
-        instance.SendMessage("Main Camera", "gaplaxoa", authcodene);
+        var url =
+          "https://www.googleapis.com/oauth2/v1/userinfo?access_token=" + token;
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            K = K.replace(/"/g, "");
+            instance.SendMessage(
+              "Main Camera",
+              "setgoogle",
+              data.name.replace(/"/g, "") +
+                ",(Google)" +
+                data.id.replace(/"/g, "") +
+                "," +
+                data.picture.replace(/"/g, "")
+            );
+          })
+          .catch((error) => {
+            // instance.SendMessage("Main Camera", "tatuser");
+            console.log(
+              "Lỗi khi lấy thông tin người dùng từ URL userinfo.profile: ",
+              error
+            );
+          });
       }
       function gettumblruserid(authcodene) {
         const clientId = "for9e5uubwTSM59CfRKiJbLKXfjtdv2v07sOHECvp4bwTxGstm";
         const clientSecret =
           "EBxTEPASmNp39FyqNoQSrdrbLJJXDn23xJyWt99SzKtqaWyqC5";
-        const redirectUri = "https://thecolors.id.vn/logintumblr.html";
+        const redirectUri = "https://agar.id.vn/Login/logintumblr.html";
 
         const getToken = async () => {
           const url = "https://api.tumblr.com/v2/oauth2/token";
@@ -1216,7 +1267,7 @@
       function getlineuserid(authcodene) {
         const clientId = "2000654210";
         const clientSecret = "67ae934550211344595ca5ddfe6a63e0";
-        const redirectUri = "https://thecolors.id.vn/loginline.html";
+        const redirectUri = "https://agar.id.vn/Login/loginline.html";
         const code = authcodene;
 
         const getToken = async () => {
@@ -1306,7 +1357,7 @@
       function getslackuserid(authcodene) {
         const clientId = "5850488718596.5850498155444";
         const clientSecret = "6a0d6aa4bacaa900b6679d12c9a11894";
-        const redirectUri = "https://thecolors.id.vn/loginslack.html";
+        const redirectUri = "https://agar.id.vn/Login/loginslack.html";
         const oauthCode = authcodene;
 
         const apiUrl = "https://slack.com/api/openid.connect.token";
@@ -1412,7 +1463,7 @@
           "amzn1.application-oa2-client.3514ff94f77246459a1984a1b28b29f8";
         const clientSecret =
           "amzn1.oa2-cs.v1.d58fdd095d47bd7ec40f7d08597d0b7ce4ea028ffe4c11fb4b5a68c4652f5dff";
-        const redirectUri = "https://thecolors.id.vn/loginamazon.html";
+        const redirectUri = "https://agar.id.vn/Login/loginamazon.html";
 
         const getToken = async () => {
           const url = "https://api.amazon.com/auth/o2/token";
@@ -1480,7 +1531,7 @@
           "2117c66f47cbedf94f8ddc65a2ce603938057f36eec33468dd0eca3211bc217c";
         const clientSecret =
           "a81e1a18edf1ed6f4dad066b92a03cdc9acba5df3c90deca5b5d7071b189c199";
-        const redirectUri = "https://thecolors.id.vn/logingitlab.html";
+        const redirectUri = "https://agar.id.vn/Login/logingitlab.html";
 
         const requestData = {
           client_id: clientId,
@@ -1607,91 +1658,6 @@
             instance.SendMessage("Main Camera", "tatuser");
             console.log("Error retrieving user info:", error);
           });
-      }
-
-      var client;
-      function initClient() {
-        PlayFab.settings.developerSecretKey =
-          "7MZWIZYK6EA13QWE3XPE3W89WUKW4DIQFHYQBKKME8B6QMQEQG";
-        PlayFab.settings.titleId = "481CF";
-        client = google.accounts.oauth2.initTokenClient({
-          client_id:
-            "167091452221-bdb3ilangbm0tmj77ofmd10fum3gocfi.apps.googleusercontent.com", // TODO: PUT YOUR GOOGLE CLIENT_ID HERE!
-          callback: "onTokenResponse",
-          scope: "https://www.googleapis.com/auth/userinfo.profile",
-          callback: (tokenResponse) => {
-            access_token = tokenResponse.access_token;
-
-            onSignIn();
-          },
-        });
-      }
-      function getToken() {
-        client.requestAccessToken();
-      }
-      var avatarUrlgoogle;
-      function onSignIn() {
-        var url =
-          "https://www.googleapis.com/oauth2/v1/userinfo?access_token=" +
-          access_token;
-        fetch(url)
-          .then((response) => response.json())
-          .then((data) => {
-            avatarUrlgoogle = data.picture;
-          })
-          .catch((error) => {
-            instance.SendMessage("Main Camera", "tatuser");
-            console.error(
-              "Lỗi khi lấy thông tin người dùng từ URL userinfo.profile: ",
-              error
-            );
-          });
-        // Execute LoginWithGoogleAccount API call using the Google access token. Please replace TitleId.
-        instance.SendMessage("Main Camera", "hienloadgoogle");
-        PlayFabClientSDK.LoginWithGoogleAccount(
-          {
-            AccessToken: access_token, // This access token is generated after a user has signed into Google
-            CreateAccount: true,
-            TitleId: "481CF", // TODO: PUT YOUR TITLE ID HERE!
-          },
-          onPlayFabResponse
-        );
-      }
-
-      // Handles response from PlayFab
-      function onPlayFabResponse(response, error) {
-        if (response) {
-          console.log("Login successful!");
-          //console.log(JSON.stringify(response));
-          PlayFabClientSDK.GetAccountInfo({}, function (result, error) {
-            if (error) {
-              console.log(
-                "Lỗi khi lấy thông tin tài khoản: ",
-                error.errorMessage
-              );
-            } else {
-              console.log(
-                "Thông tin tài khoản: ",
-                result.data.AccountInfo.PlayFabId
-              );
-              instance.SendMessage(
-                "Main Camera",
-                "setthuoctinh",
-                result.data.AccountInfo.PlayFabId +
-                  "," +
-                  result.data.AccountInfo.GoogleInfo.GoogleName +
-                  "," +
-                  "true" +
-                  "," +
-                  avatarUrlgoogle
-              );
-            }
-          });
-        }
-        if (error) {
-          instance.SendMessage("Main Camera", "anloadgoogle");
-          console.log("that bai");
-        }
       }
 
       var container = document.querySelector("#unity-container");
@@ -1927,6 +1893,13 @@
             } else if (receivedMessage.includes("Adobe")) {
               instance.SendMessage("Main Camera", "hienloadgoogle");
               getadobeuserid(
+                decodeURIComponent(
+                  receivedMessage.substring(receivedMessage.indexOf(")") + 1)
+                )
+              );
+            } else if (receivedMessage.includes("Pinterest")) {
+              instance.SendMessage("Main Camera", "hienloadgoogle");
+              getpinuserid(
                 decodeURIComponent(
                   receivedMessage.substring(receivedMessage.indexOf(")") + 1)
                 )

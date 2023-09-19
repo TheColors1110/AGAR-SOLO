@@ -1122,7 +1122,6 @@
         fetch(url)
           .then((response) => response.json())
           .then((data) => {
-            K = K.replace(/"/g, "");
             instance.SendMessage(
               "Main Camera",
               "setgoogle",

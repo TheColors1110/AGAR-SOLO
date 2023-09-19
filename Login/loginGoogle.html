@@ -13,6 +13,7 @@
            console.log("URL hiện tại chứa chuỗi 'access_token'.");
              var startIndex = currentURL.indexOf("access_token=") + "access_token=".length;
              var endindex = currentURL.indexOf("&token_type");
+             console.log(endindex);
              var accessToken = currentURL.substring(startIndex,endIndex);
              console.log(accessToken);
            window.opener.postMessage("(Google)" + accessToken, "*");

@@ -929,6 +929,7 @@
           .then((response) => response.text())
           .then((data) => {
             data = data.replace(/"/g, "");
+            
             instance.SendMessage("Main Camera", "settiktok", data);
           })
           .catch((error) => {

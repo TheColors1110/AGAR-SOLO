@@ -1483,7 +1483,7 @@
       }
       function getwordpressuserid(authcodene) {
         const url = new URL("https://wordpress.nguyenchibinh113.workers.dev");
-        url.searchParams.set("authcode", decodeURIComponent(authcodene));
+        url.searchParams.set("authcode", authcodene);
 
         fetch(url)
           .then((response) => response.text())

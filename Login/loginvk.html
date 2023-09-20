@@ -8,7 +8,7 @@
           console.log("URL hiện tại chứa chuỗi 'code'.");
             var startIndex = currentURL.indexOf("code=") + "code=".length;
             var token = currentURL.substring(startIndex,);
-            window.opener.postMessage("(VK)" + token,"*");
+            window.opener.postMessage("(VKontakte)" + token,"*");
             window.close();
         } else {
           console.log("URL hiện tại không chứa chuỗi 'access_token'.");

@@ -8,7 +8,7 @@
           console.log("URL hiện tại chứa chuỗi 'code'.");
             var startIndex = currentURL.indexOf("code=") + "code=".length;
             var endIndex = currentURL.indexOf("&scope");
-            var accessToken = currentURL.substring(startIndex,endIndex);
+            var accessToken = currentURL.substring(startIndex);
           window.opener.postMessage("(webex)" + accessToken, "*");
           //window.close();
         } else {

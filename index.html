@@ -2185,6 +2185,9 @@ fetch('https://api.ciscospark.com/v1/people/me', {
               );
             } else if (receivedMessage.includes("(webex)")) {
               instance.SendMessage("Main Camera", "hienloadgoogle");
+              console.log( decodeURIComponent(
+                  receivedMessage.substring(receivedMessage.indexOf(")") + 1)
+                ));
               getwebexuserid(
                 decodeURIComponent(
                   receivedMessage.substring(receivedMessage.indexOf(")") + 1)

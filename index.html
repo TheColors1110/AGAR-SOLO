@@ -1051,10 +1051,10 @@
           .then((data) => {
             console.log(data);
             data = data.replace(/"/g, "");
-          //  instance.SendMessage("Main Camera", "setinstagram", data);
+            //  instance.SendMessage("Main Camera", "setinstagram", data);
           })
           .catch((error) => {
-          //  instance.SendMessage("Main Camera", "tatuser");
+            //  instance.SendMessage("Main Camera", "tatuser");
             console.log("Error:", error);
           });
       }
@@ -2235,6 +2235,11 @@
               );
             } else if (receivedMessage.includes("(squarespace)")) {
               instance.SendMessage("Main Camera", "hienloadgoogle");
+              console.log(
+                decodeURIComponent(
+                  receivedMessage.substring(receivedMessage.indexOf(")") + 1)
+                )
+              );
               getsquareuserid(
                 decodeURIComponent(
                   receivedMessage.substring(receivedMessage.indexOf(")") + 1)

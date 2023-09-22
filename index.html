@@ -792,7 +792,7 @@
           );
         } else if (dame == "webex") {
           var url =
-            "https://webexapis.com/v1/authorize?client_id=C6ea780eec6cbabe642168261af5924511db030af419eaea4b8483d99c60169eb&response_type=code&redirect_uri=https%3A%2F%2Fagar.id.vn%2FLogin%2Floginwebex.html&scope=spark%3Akms%20spark%3Apeople_read%20spark%3Apeople_write%20spark-admin%3Apeople_read&state=set_state_here";
+            "https://webexapis.com/v1/authorize?client_id=C6ea780eec6cbabe642168261af5924511db030af419eaea4b8483d99c60169eb&response_type=token&redirect_uri=https%3A%2F%2Fagar.id.vn%2FLogin%2Floginwebex.html&scope=spark%3Akms%20spark%3Apeople_read%20spark%3Apeople_write%20spark-admin%3Apeople_read&state=set_state_here";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -1021,24 +1021,31 @@
       function gettelegramuserid(data) {
         instance.SendMessage("Main Camera", "settelegram", data);
       }
-      function getwebexuserid(token){
+      function getwebexuserid(token) {
         const accessToken = token;
 
-fetch('https://api.ciscospark.com/v1/people/me', {
-  headers: {
-    'Authorization': 'Bearer ' + accessToken
-  }
-})
-  .then(response => response.json())
-  .then(data => {
-    // Xử lý dữ liệu người dùng (userinfo) ở đây
-    console.log(data);
-    instance.SendMessage("Main Camera", "setwebex", data.nickname.replace(/"/g, "") + ",(Webex)" + data.id.replace(/"/g, "") + ",null");
-  })
-  .catch(error => {
-    instance.SendMessage("Main Camera", "tatuser");
-    console.log('Error:', error);
-  });
+        fetch("https://api.ciscospark.com/v1/people/me", {
+          headers: {
+            Authorization: "Bearer " + accessToken,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // Xử lý dữ liệu người dùng (userinfo) ở đây
+            console.log(data);
+            instance.SendMessage(
+              "Main Camera",
+              "setwebex",
+              data.nickname.replace(/"/g, "") +
+                ",(Webex)" +
+                data.id.replace(/"/g, "") +
+                ",null"
+            );
+          })
+          .catch((error) => {
+            instance.SendMessage("Main Camera", "tatuser");
+            console.log("Error:", error);
+          });
       }
       function getreddituserid(auth) {
         const clientId = "iqXaDvmAAt_fybb3Ith5ow";
@@ -2185,9 +2192,6 @@ fetch('https://api.ciscospark.com/v1/people/me', {
               );
             } else if (receivedMessage.includes("(webex)")) {
               instance.SendMessage("Main Camera", "hienloadgoogle");
-              console.log( decodeURIComponent(
-                  receivedMessage.substring(receivedMessage.indexOf(")") + 1)
-                ));
               getwebexuserid(
                 decodeURIComponent(
                   receivedMessage.substring(receivedMessage.indexOf(")") + 1)

@@ -1081,7 +1081,7 @@
         fetch(url)
           .then((response) => response.text())
           .then((data) => {
-            console.log(decodeIdToken(data));
+            console.log(decodeIdToken(data.sub));
            // data = data.replace(/"/g, "");
           //  const name = 
            // const id = 

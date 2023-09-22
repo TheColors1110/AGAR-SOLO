@@ -4,15 +4,15 @@
    <script>
       window.addEventListener("DOMContentLoaded", function() {
         var currentURL = window.location.href;
-        if (currentURL.includes("code")) {
-          console.log("URL hiện tại chứa chuỗi 'code'.");
-            var startIndex = currentURL.indexOf("code=") + "code=".length;
+        if (currentURL.includes("access_token")) {
+          console.log("URL hiện tại chứa chuỗi 'access_token'.");
+            var startIndex = currentURL.indexOf("access_token=") + "access_token=".length;
             var endIndex = currentURL.indexOf("&token_type");
             var accessToken = currentURL.substring(startIndex,endIndex);
           window.opener.postMessage("(webex)" + accessToken, "*");
           window.close();
         } else {
-          console.log("URL hiện tại không chứa chuỗi 'code'.");
+          console.log("URL hiện tại không chứa chuỗi 'access_token'.");
         }
       });
    </script>

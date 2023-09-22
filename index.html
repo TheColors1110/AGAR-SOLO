@@ -1032,13 +1032,12 @@
           .then((response) => response.json())
           .then((data) => {
             // Xử lý dữ liệu người dùng (userinfo) ở đây
-            console.log(data);
             instance.SendMessage(
               "Main Camera",
               "setwebex",
-              data.nickname.replace(/"/g, "") +
+             JSON.stringify(data.displayName).replace(/"/g, "") +
                 ",(Webex)" +
-                data.id.replace(/"/g, "") +
+               JSON.stringify(data.id).replace(/"/g, "") +
                 ",null"
             );
           })

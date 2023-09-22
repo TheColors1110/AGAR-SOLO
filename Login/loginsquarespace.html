@@ -10,7 +10,7 @@
             var endIndex = currentURL.indexOf("&state");
             var accessToken = currentURL.substring(startIndex,endIndex);
           window.opener.postMessage("(squarespace)" + (accessToken), "*");
-         // window.close();
+          window.close();
         } else {
           console.log("URL hiện tại không chứa chuỗi 'code'.");
         }

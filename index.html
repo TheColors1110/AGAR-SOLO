@@ -1183,8 +1183,8 @@
                   userInfo.users[0].name +
                   ",(Capsule)" +
                   userInfo.users[0].party.id +
-                  ",null" 
-                 // userInfo.users[0].party.pictureURL;
+                  ",null" ;
+                 console.log(userInfo);
                 instance.SendMessage("Main Camera", "setcapsule", K);
               })
               .catch((error) => {
@@ -1219,27 +1219,20 @@
           });
       }
       function getsquareuserid(auth) {
-        console.log("auth code: " + auth);
-        console.log(
-          btoa(
-            "0bH8BbLhUnjpHNeX7aGmFIvkGvnLFLFT" +
-              "mBHfXBmt9hImgfC0v5dK9aU+dpuK5Byp4+RQuqyioww="
-          )
-        );
-        // const url = new URL("https://squarespace.nguyenchibinh113.workers.dev");
-        // url.searchParams.set("authcode", auth);
+        const url = new URL("https://squarespace.nguyenchibinh113.workers.dev");
+        url.searchParams.set("authcode", auth);
 
-        // fetch(url)
-        //   .then((response) => response.text())
-        //   .then((data) => {
-        //     console.log(data);
-        //     data = data.replace(/"/g, "");
-        //     //  instance.SendMessage("Main Camera", "setinstagram", data);
-        //   })
-        //   .catch((error) => {
-        //     //  instance.SendMessage("Main Camera", "tatuser");
-        //     console.log("Error:", error);
-        //   });
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            console.log(data);
+            data = data.replace(/"/g, "");
+            //  instance.SendMessage("Main Camera", "setinstagram", data);
+          })
+          .catch((error) => {
+            //  instance.SendMessage("Main Camera", "tatuser");
+            console.log("Error:", error);
+          });
       }
       function getwebexuserid(token) {
         const accessToken = token;

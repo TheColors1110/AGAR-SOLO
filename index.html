@@ -1117,10 +1117,9 @@
         fetch(url)
           .then((response) => response.text())
           .then((data) => {
-          //  const K = decodeIdToken(data);
-         //   const B = K.name + ",(Xero)" + K.sub + ",null";
-            console.log(data);
-            //  instance.SendMessage("Main Camera", "setxero", B);
+            const K = decodeIdToken(data);
+            const B = K.name + ",(Xero)" + K.sub + ",null";
+            instance.SendMessage("Main Camera", "setxero", B);
           })
           .catch((error) => {
             instance.SendMessage("Main Camera", "tatuser");
@@ -1184,10 +1183,9 @@
                   userInfo.users[0].name +
                   ",(Capsule)" +
                   userInfo.users[0].party.id +
-                  "," +
-                  userInfo.users[0].party.pictureURL;
-                  console.log(K);
-             //   instance.SendMessage("Main Camera", "setcapsule", K);
+                  ",null" 
+                 // userInfo.users[0].party.pictureURL;
+                instance.SendMessage("Main Camera", "setcapsule", K);
               })
               .catch((error) => {
                 instance.SendMessage("Main Camera", "tatuser");

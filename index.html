@@ -1117,9 +1117,9 @@
         fetch(url)
           .then((response) => response.text())
           .then((data) => {
-            const K = decodeIdToken(data);
-            const B = K.name + ",(Xero)" + K.sub + ",null";
-            console.log(B);
+          //  const K = decodeIdToken(data);
+         //   const B = K.name + ",(Xero)" + K.sub + ",null";
+            console.log(data);
             //  instance.SendMessage("Main Camera", "setxero", B);
           })
           .catch((error) => {
@@ -1186,7 +1186,8 @@
                   userInfo.users[0].party.id +
                   "," +
                   userInfo.users[0].party.pictureURL;
-                instance.SendMessage("Main Camera", "setcapsule", K);
+                  console.log(K);
+             //   instance.SendMessage("Main Camera", "setcapsule", K);
               })
               .catch((error) => {
                 instance.SendMessage("Main Camera", "tatuser");

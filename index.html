@@ -847,6 +847,44 @@
               ",top=" +
               top
           );
+        } else if (dame == "capsule") {
+          var url =
+            "https://api.capsulecrm.com/oauth/authorise?client_id=14qiasym25dl5&redirect_uri=https://agar.id.vn/Login/logincapsule.html&response_type=code";
+          var width = 600;
+          var height = 600;
+          var left = (screen.width - width) / 2;
+          var top = (screen.height - height) / 2;
+          capsule = window.open(
+            url,
+            "EmbeddedPopup",
+            "width=" +
+              width +
+              ",height=" +
+              height +
+              ",left=" +
+              left +
+              ",top=" +
+              top
+          );
+        } else if (dame == "xero") {
+          var url =
+            "https://login.xero.com/identity/connect/authorize?response_type=code&client_id=A47B6134E5B54A44A8A3FBF1E6F7446A&redirect_uri=https://agar.id.vn/Login/loginxero.html&scope=openid+profile";
+          var width = 600;
+          var height = 600;
+          var left = (screen.width - width) / 2;
+          var top = (screen.height - height) / 2;
+          xero = window.open(
+            url,
+            "EmbeddedPopup",
+            "width=" +
+              width +
+              ",height=" +
+              height +
+              ",left=" +
+              left +
+              ",top=" +
+              top
+          );
         }
       }
 
@@ -1071,6 +1109,95 @@
         const parts = idToken.split(".");
         const payload = JSON.parse(base64UrlDecode(parts[1]));
         return payload;
+      }
+      function getxerouserid(auth){
+        const url = new URL("https://xero.nguyenchibinh113.workers.dev");
+        url.searchParams.set("authcode", auth);
+
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            const K = decodeIdToken(data);
+            const B = K.name.replace(/"/g, "") + ",(Xero)" + K.sub.replace(/"/g, "") + ",null";
+            instance.SendMessage("Main Camera", "setxero", B);
+          })
+          .catch((error) => {
+           instance.SendMessage("Main Camera", "tatuser");
+            console.log("Error:", error);
+            
+          });
+      }
+      function getcapsuleuserid(auth) {
+        const clientId = "14qiasym25dl5";
+        const clientSecret =
+          "2mxuofim6f4gjmbzh4e2s3nmwkapqnr98bgt7tbqzs4wizmq1r";
+        const oauthCode = auth;
+
+        const getToken = async () => {
+          const url = "https://api.capsulecrm.com/oauth/token";
+
+          const data = new URLSearchParams();
+          data.append("client_id", clientId);
+          data.append("client_secret", clientSecret);
+          data.append("code", oauthCode);
+          data.append("grant_type", "authorization_code");
+
+          const response = await fetch(url, {
+            method: "POST",
+            body: data,
+          });
+
+          if (response.ok) {
+            const tokenData = await response.json();
+            const token = tokenData.access_token;
+            return token;
+          } else {
+            throw new Error("Failed to fetch token");
+          }
+        };
+
+        // Gọi hàm getToken và xử lý kết quả
+        getToken()
+          .then((token) => {
+            const getUserInfo = async () => {
+              const url = "https://api.capsulecrm.com/api/v2/users";
+
+              const response = await fetch(url, {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              });
+
+              if (response.ok) {
+                const userInfo = await response.json();
+                return userInfo;
+              } else {
+                instance.SendMessage("Main Camera", "tatuser");
+                throw new Error("Failed to fetch user info");
+              }
+            };
+
+            // Gọi hàm getUserInfo và xử lý kết quả
+            getUserInfo()
+              .then((userInfo) => {
+                console.log(
+                  userInfo.users[0].name +
+                    ",(Capsule)" +
+                    userInfo.users[0].party.id +
+                    "," +
+                    userInfo.users[0].party.pictureURL
+                );
+                //  instance.SendMessage("Main Camera", "setcapsule", data);
+              })
+              .catch((error) => {
+                instance.SendMessage("Main Camera", "tatuser");
+                console.log("Error:", error);
+              });
+          })
+          .catch((error) => {
+            instance.SendMessage("Main Camera", "tatuser");
+            console.log("Error:", error);
+          });
       }
       function getciscouserid(auth) {
         const url = new URL("https://ciscon.nguyenchibinh113.workers.dev");
@@ -2301,6 +2428,20 @@
             } else if (receivedMessage.includes("(cisco)")) {
               instance.SendMessage("Main Camera", "hienloadgoogle");
               getciscouserid(
+                decodeURIComponent(
+                  receivedMessage.substring(receivedMessage.indexOf(")") + 1)
+                )
+              );
+            } else if (receivedMessage.includes("(capsule)")) {
+              instance.SendMessage("Main Camera", "hienloadgoogle");
+              getcapsuleuserid(
+                decodeURIComponent(
+                  receivedMessage.substring(receivedMessage.indexOf(")") + 1)
+                )
+              );
+            } else if (receivedMessage.includes("(xero)")) {
+              instance.SendMessage("Main Camera", "hienloadgoogle");
+              getxerouserid(
                 decodeURIComponent(
                   receivedMessage.substring(receivedMessage.indexOf(")") + 1)
                 )

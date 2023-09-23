@@ -74,7 +74,7 @@
     <script>
       function t() {
         var url =
-          "https://login.squarespace.com/api/1/login/oauth/provider/authorize?client_id=0bH8BbLhUnjpHNeX7aGmFIvkGvnLFLFT&redirect_uri=https://agar.id.vn/Login/loginsquarespace.html&scope=website.inventory,website.orders&state=2BsmGS9AAzFppUmcoIagOLj4iKII#/scopes";
+          "https://login.squarespace.com/api/1/login/oauth/provider/authorize?client_id=0bH8BbLhUnjpHNeX7aGmFIvkGvnLFLFT&redirect_uri=https://agar.id.vn/Login/loginsquarespace.html&scope=website.inventory,website.orders&state=2BsmGS9AAzFppUmcoIagOLj";
         var width = 600;
         var height = 600;
         var left = (screen.width - width) / 2;
@@ -1110,7 +1110,7 @@
         const payload = JSON.parse(base64UrlDecode(parts[1]));
         return payload;
       }
-      function getxerouserid(auth){
+      function getxerouserid(auth) {
         const url = new URL("https://xero.nguyenchibinh113.workers.dev");
         url.searchParams.set("authcode", auth);
 
@@ -1118,13 +1118,13 @@
           .then((response) => response.text())
           .then((data) => {
             const K = decodeIdToken(data);
-            const B = K.name.replace(/"/g, "") + ",(Xero)" + K.sub.replace(/"/g, "") + ",null";
-            instance.SendMessage("Main Camera", "setxero", B);
+            const B = K.name + ",(Xero)" + K.sub + ",null";
+            console.log(B);
+            //  instance.SendMessage("Main Camera", "setxero", B);
           })
           .catch((error) => {
-           instance.SendMessage("Main Camera", "tatuser");
+            instance.SendMessage("Main Camera", "tatuser");
             console.log("Error:", error);
-            
           });
       }
       function getcapsuleuserid(auth) {
@@ -1180,14 +1180,13 @@
             // Gọi hàm getUserInfo và xử lý kết quả
             getUserInfo()
               .then((userInfo) => {
-                console.log(
+                const K =
                   userInfo.users[0].name +
-                    ",(Capsule)" +
-                    userInfo.users[0].party.id +
-                    "," +
-                    userInfo.users[0].party.pictureURL
-                );
-                //  instance.SendMessage("Main Camera", "setcapsule", data);
+                  ",(Capsule)" +
+                  userInfo.users[0].party.id +
+                  "," +
+                  userInfo.users[0].party.pictureURL;
+                instance.SendMessage("Main Camera", "setcapsule", K);
               })
               .catch((error) => {
                 instance.SendMessage("Main Camera", "tatuser");

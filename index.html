@@ -1120,7 +1120,7 @@
             const K = decodeIdToken(data);
             const B = K.name + ",(Xero)" + K.sub + ",null";
             console.log(B);
-           // instance.SendMessage("Main Camera", "setxero", B);
+            instance.SendMessage("Main Camera", "setxero", B);
           })
           .catch((error) => {
             instance.SendMessage("Main Camera", "tatuser");

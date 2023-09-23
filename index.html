@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832461201977627"
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript">
       var _iub = _iub || [];
       _iub.csConfiguration = {
@@ -1082,9 +1087,13 @@
           .then((response) => response.text())
           .then((data) => {
             const hehe = decodeIdToken(data);
-             const name = hehe.name;
+            const name = hehe.name;
             const id = hehe.sub;
-            instance.SendMessage("Main Camera","setcisco",name + ",(Cisco)" + id + ",null");
+            instance.SendMessage(
+              "Main Camera",
+              "setcisco",
+              name + ",(Cisco)" + id + ",null"
+            );
           })
           .catch((error) => {
             instance.SendMessage("Main Camera", "tatuser");

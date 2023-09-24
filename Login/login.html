@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script>
+      window.addEventListener("DOMContentLoaded", function() {
+        var currentURL = window.location.href;
+        if(currentURL)
+
+        if (currentURL.includes("code")) {
+          console.log("URL hiện tại chứa chuỗi 'code'.");
+            var startIndex = currentURL.indexOf("code=") + "code=".length;
+            var token = currentURL.substring(startIndex);
+            window.opener.postMessage("(Adobe)" + token,"*");
+            window.close();
+        } else {
+          console.log("URL hiện tại không chứa chuỗi 'code'.");
+        }
+
+
+
+
+      });
+   </script>
+</head>
+<body>
+</body>
+</html>

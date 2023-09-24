@@ -8,6 +8,7 @@
         var endindex;
         var message;
         var Iserror = "false";
+        var IsTwitter = "false";
         var Type = currentURL
           .substring(
             currentURL.indexOf("state=") + "state=".length,
@@ -59,13 +60,38 @@
             endindex = currentURL.indexOf("&state");
             message = currentURL.substring(startIndex, endindex);
             break;
-            
+          case "zalo":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "wordpress":
+            startIndex =
+              currentURL.indexOf("access_token=") + "access_token=".length;
+            endindex = currentURL.indexOf("&expires_in");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "amazon":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&scope");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "twitter":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            IsTwitter = "true";
+            break;
           default:
             Iserror = "true";
             break;
         }
-        if (Iserror == "false") {
+        if (Iserror == "false" && IsTwitter == "false") {
           window.opener.postMessage("(" + Type + ")" + message, "*");
+          window.close();
+        } else if (IsTwitter == "true") {
+          const channel = new BroadcastChannel("myChannel");
+          channel.postMessage(decodeURIComponent(message));
           window.close();
         }
       });

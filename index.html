@@ -295,7 +295,7 @@
           );
         } else if (dame == "zalo") {
           var url =
-            "https://oauth.zaloapp.com/v4/permission?app_id=285314313720190236&redirect_uri=https://agar.id.vn/Login/loginzalo.html&state=state";
+            "https://oauth.zaloapp.com/v4/permission?app_id=285314313720190236&redirect_uri=https://agar.id.vn/Login/login.html&state=zalo-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -314,7 +314,7 @@
           );
         } else if (dame == "amazon") {
           var url =
-            "https://www.amazon.com/ap/oa?client_id=amzn1.application-oa2-client.3514ff94f77246459a1984a1b28b29f8&scope=profile&response_type=code&redirect_uri=https://agar.id.vn/Login/loginamazon.html";
+            "https://www.amazon.com/ap/oa?client_id=amzn1.application-oa2-client.3514ff94f77246459a1984a1b28b29f8&scope=profile&response_type=code&redirect_uri=https://agar.id.vn/Login/login.html&state=amazon-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -390,7 +390,7 @@
           );
         } else if (dame == "wordpress") {
           var url =
-            "https://public-api.wordpress.com/oauth2/authorize?client_id=90179&redirect_uri=https://agar.id.vn/Login/loginwordpress.html&response_type=token";
+            "https://public-api.wordpress.com/oauth2/authorize?client_id=90179&redirect_uri=https://agar.id.vn/Login/login.html&response_type=token&state=wordpress-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -562,9 +562,9 @@
                 .replace(/=+$/, "");
               var base64UrlEncoded = base64Url;
               var url =
-                "https://twitter.com/i/oauth2/authorize?response_type=code&client_id=YzNFTU1MZVp4emo1ZFByekVYa1k6MTpjaQ&redirect_uri=https://agar.id.vn/Login/logintwitter.html&scope=users.read+tweet.read&state=state&code_challenge=" +
+                "https://twitter.com/i/oauth2/authorize?response_type=code&client_id=YzNFTU1MZVp4emo1ZFByekVYa1k6MTpjaQ&redirect_uri=https://agar.id.vn/Login/login.html&scope=users.read+tweet.read&state=state&code_challenge=" +
                 base64UrlEncoded +
-                "&code_challenge_method=S256";
+                "&code_challenge_method=S256&state=twitter-TheColors";
               var width = 600;
               var height = 600;
               var left = (screen.width - width) / 2;
@@ -1943,7 +1943,7 @@
           "amzn1.application-oa2-client.3514ff94f77246459a1984a1b28b29f8";
         const clientSecret =
           "amzn1.oa2-cs.v1.d58fdd095d47bd7ec40f7d08597d0b7ce4ea028ffe4c11fb4b5a68c4652f5dff";
-        const redirectUri = "https://agar.id.vn/Login/loginamazon.html";
+        const redirectUri = "https://agar.id.vn/Login/login.html";
 
         const getToken = async () => {
           const url = "https://api.amazon.com/auth/o2/token";

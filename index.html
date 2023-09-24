@@ -238,7 +238,7 @@
           );
         } else if (dame == "drop") {
           var url =
-            "https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=rbcqdjry5cgsx4w&redirect_uri=https://agar.id.vn/Login/logindropbox.html";
+            "https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=rbcqdjry5cgsx4w&redirect_uri=https://agar.id.vn/Login/login.html&state=dropbox-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -352,7 +352,7 @@
           );
         } else if (dame == "linkedln") {
           var url =
-            "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=77on8t1ryw0h84&redirect_uri=https://agar.id.vn/Login/loginlinkedln.html&state=STATE&scope=openid%20profile%20w_member_social%20email";
+            "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=77on8t1ryw0h84&redirect_uri=https://agar.id.vn/Login/login.html&state=linkedln-TheColors&scope=openid%20profile%20w_member_social%20email";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -562,7 +562,7 @@
                 .replace(/=+$/, "");
               var base64UrlEncoded = base64Url;
               var url =
-                "https://twitter.com/i/oauth2/authorize?response_type=code&client_id=YzNFTU1MZVp4emo1ZFByekVYa1k6MTpjaQ&redirect_uri=https://agar.id.vn/Login/login.html&scope=users.read+tweet.read&state=state&code_challenge=" +
+                "https://twitter.com/i/oauth2/authorize?response_type=code&client_id=YzNFTU1MZVp4emo1ZFByekVYa1k6MTpjaQ&redirect_uri=https://agar.id.vn/Login/login.html&scope=users.read+tweet.read&code_challenge=" +
                 base64UrlEncoded +
                 "&code_challenge_method=S256&state=twitter-TheColors";
               var width = 600;
@@ -587,7 +587,7 @@
             });
         } else if (dame == "tumblr") {
           var url =
-            "https://www.tumblr.com/oauth2/authorize/?client_id=for9e5uubwTSM59CfRKiJbLKXfjtdv2v07sOHECvp4bwTxGstm&response_type=code&state=state&redirect_uri=https://agar.id.vn/.Login/logintumblr.html&scope=basic";
+            "https://www.tumblr.com/oauth2/authorize/?client_id=for9e5uubwTSM59CfRKiJbLKXfjtdv2v07sOHECvp4bwTxGstm&response_type=code&state=tumblr-TheColors&redirect_uri=https://agar.id.vn/.Login/login.html&scope=basic";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -697,7 +697,7 @@
             });
         } else if (dame == "VK") {
           var url =
-            "https://oauth.vk.com/authorize?client_id=51750601&display=page&redirect_uri=https://agar.id.vn/Login/loginvk.html&response_type=code&v=5.131";
+            "https://oauth.vk.com/authorize?client_id=51750601&display=page&redirect_uri=https://agar.id.vn/Login/login.html&response_type=code&v=5.131&state=VKontakte-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -1625,7 +1625,7 @@
         const clientId = "for9e5uubwTSM59CfRKiJbLKXfjtdv2v07sOHECvp4bwTxGstm";
         const clientSecret =
           "EBxTEPASmNp39FyqNoQSrdrbLJJXDn23xJyWt99SzKtqaWyqC5";
-        const redirectUri = "https://agar.id.vn/Login/logintumblr.html";
+        const redirectUri = "https://agar.id.vn/Login/login.html";
 
         const getToken = async () => {
           const url = "https://api.tumblr.com/v2/oauth2/token";

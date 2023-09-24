@@ -918,7 +918,6 @@
         var height = 600;
         var left = (screen.width - width) / 2;
         var top = (screen.height - height) / 2;
-        console.log("github");
         popup = window.open(
           url,
           "GitHubLoginPopup",
@@ -2228,6 +2227,11 @@
               );
             } else if (receivedMessage.includes("(Github)")) {
               instance.SendMessage("Main Camera", "hienloadgoogle");
+              console.log(
+                decodeURIComponent(
+                  receivedMessage.substring(receivedMessage.indexOf(")") + 1)
+                )
+              );
               getGitHubUserID(
                 decodeURIComponent(
                   receivedMessage.substring(receivedMessage.indexOf(")") + 1)

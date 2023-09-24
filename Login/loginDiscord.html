@@ -7,7 +7,7 @@
         if (currentURL.includes("access_token")) {
           console.log("URL hiện tại chứa chuỗi 'access_token'.");
             var startIndex = currentURL.indexOf("access_token=") + "access_token=".length;
-            var endindex = currentURL.indexOf("&expires_in")
+            var endindex = currentURL.indexOf("&expires_in");
             var accessToken = currentURL.substring(startIndex,endindex);
           window.opener.postMessage("(discord)" + accessToken, "*");
           window.close();

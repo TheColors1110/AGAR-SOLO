@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head>
-   <script>
-      window.addEventListener("DOMContentLoaded", function() {
+  <head>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
         var currentURL = window.location.href;
-        if(currentURL)
-
-        if (currentURL.includes("code")) {
-          console.log("URL hiện tại chứa chuỗi 'code'.");
-            var startIndex = currentURL.indexOf("code=") + "code=".length;
-            var token = currentURL.substring(startIndex);
-            window.opener.postMessage("(Adobe)" + token,"*");
-            window.close();
-        } else {
-          console.log("URL hiện tại không chứa chuỗi 'code'.");
+        var startIndex;
+        var endindex;
+        var message;
+        var Iserror = "false";
+        var Type = currentURL
+          .substring(
+            currentURL.indexOf("state=") + "state=".length,
+            currentURL.indexOf("-TheColors")
+          )
+          .toString();
+        switch (Type) {
+          case "Google":
+            startIndex =
+              currentURL.indexOf("access_token=") + "access_token=".length;
+            endindex = currentURL.indexOf("&token_type");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "Github":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            message = currentURL.substring(startIndex);
+            break;
+          case "Twitch":
+            startIndex =
+              currentURL.indexOf("access_token=") + "access_token=".length;
+            endindex = currentURL.indexOf("&scope");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "discord":
+            startIndex =
+              currentURL.indexOf("access_token=") + "access_token=".length;
+            endindex = currentURL.indexOf("&expires_in");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "tiktok":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&scope");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          default:
+            Iserror = "true";
+            break;
         }
-
-
-
-
+        if (Iserror == "false") {
+          window.opener.postMessage("(" + Type + ")" + message, "*");
+          window.close();
+        }
       });
-   </script>
-</head>
-<body>
-</body>
+    </script>
+  </head>
+  <body></body>
 </html>

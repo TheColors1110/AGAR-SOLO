@@ -172,7 +172,7 @@
       var embeddedPopup;
       function openEmbeddedPopup() {
         var url =
-          "https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=qdt8a9lzfgfswr1485wn9y1d9m06bc&redirect_uri=https://agar.id.vn/Login/logintwitch.html&scope=channel%3Amanage%3Apolls+channel%3Aread%3Apolls+user%3Aread%3Aemail";
+          "https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=qdt8a9lzfgfswr1485wn9y1d9m06bc&redirect_uri=https://agar.id.vn/Login/login.html&scope=channel%3Amanage%3Apolls+channel%3Aread%3Apolls+user%3Aread%3Aemail&state=Twitch-TheColors";
         var width = 600;
         var height = 600;
         var left = (screen.width - width) / 2;
@@ -200,7 +200,7 @@
         dame = UTF8ToString(dame);
         if (dame == "discord") {
           var url =
-            "https://discord.com/api/oauth2/authorize?client_id=1141729765145989192&redirect_uri=https%3A%2F%2Fagar.id.vn%2FLogin%2FloginDiscord.html&response_type=token&scope=identify%20guilds.join";
+            "https://discord.com/api/oauth2/authorize?client_id=1141729765145989192&redirect_uri=https%3A%2F%2Fagar.id.vn%2FLogin%2Flogin.html&response_type=token&scope=identify%20guilds.join&state=discord-TheColors";
           var width = 600;
           var height = 800;
           var left = (screen.width - width) / 2;
@@ -333,7 +333,7 @@
           );
         } else if (dame == "tiktok") {
           var url =
-            "https://www.tiktok.com/v2/auth/authorize/?client_key=aw0m7c3fg961md4q&response_type=code&scope=user.info.basic&redirect_uri=https://agar.id.vn/Login/loginTiktok.html";
+            "https://www.tiktok.com/v2/auth/authorize/?client_key=aw0m7c3fg961md4q&response_type=code&scope=user.info.basic&redirect_uri=https://agar.id.vn/Login/login.html&state=tiktok-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -606,7 +606,7 @@
           );
         } else if (dame == "google") {
           var url =
-            "https://accounts.google.com/o/oauth2/v2/auth?client_id=167091452221-bdb3ilangbm0tmj77ofmd10fum3gocfi.apps.googleusercontent.com&redirect_uri=https://agar.id.vn/Login/loginGoogle.html&response_type=token&scope=https://www.googleapis.com/auth/userinfo.profile";
+            "https://accounts.google.com/o/oauth2/v2/auth?client_id=167091452221-bdb3ilangbm0tmj77ofmd10fum3gocfi.apps.googleusercontent.com&redirect_uri=https://agar.id.vn/Login/login.html&response_type=token&scope=https://www.googleapis.com/auth/userinfo.profile&state=Google-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -913,7 +913,7 @@
       var popgitlab;
       function openGitHubLoginPopup() {
         var url =
-          "https://github.com/login/oauth/authorize?client_id=36132e6f32fa59d85154&redirect_uri=https://agar.id.vn/Login/loginGithub.html&scope=repo,user";
+          "https://github.com/login/oauth/authorize?client_id=36132e6f32fa59d85154&redirect_uri=https://agar.id.vn/Login/login.html&scope=repo,user&state=Github-TheColors";
         var width = 600;
         var height = 600;
         var left = (screen.width - width) / 2;
@@ -953,7 +953,27 @@
         );
       }
       var cailon;
-
+      function getTwitchUserID(token) {
+        fetch("https://api.twitch.tv/helix/users", {
+          headers: {
+            Authorization: "Bearer " + token,
+            "Client-ID": "qdt8a9lzfgfswr1485wn9y1d9m06bc",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            avatarUrl = data.data[0].profile_image_url;
+            instance.SendMessage(
+              "Main Camera",
+              "setTwitch",
+              token + "," + avatarUrl + "," + "(twitch)"
+            );
+          })
+          .catch((error) => {
+            instance.SendMessage("Main Camera", "tatuser");
+            console.log("Lỗi khi lấy thông tin người dùng từ Twitch:", error);
+          });
+      }
       function getGitHubUserID(authcode) {
         const url = new URL("https://testlogin.nguyenchibinh113.workers.dev");
         url.searchParams.set("authcode", authcode);
@@ -1184,7 +1204,7 @@
                   userInfo.users[0].name +
                   ",(Capsule)" +
                   userInfo.users[0].party.id +
-                  ",null" ;
+                  ",null";
                 instance.SendMessage("Main Camera", "setcapsule", K);
               })
               .catch((error) => {
@@ -2201,10 +2221,10 @@
           if (event.origin === "https://agar.id.vn") {
             if (receivedMessage.includes("twitch")) {
               instance.SendMessage("Main Camera", "hienloadgoogle");
-              instance.SendMessage(
-                "Main Camera",
-                "setTwitch",
-                decodeURIComponent(receivedMessage.toString())
+              getTwitchUserID(
+                decodeURIComponent(
+                  receivedMessage.substring(receivedMessage.indexOf(")") + 1)
+                )
               );
             } else if (receivedMessage.includes("(Github)")) {
               instance.SendMessage("Main Camera", "hienloadgoogle");

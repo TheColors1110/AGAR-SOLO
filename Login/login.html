@@ -116,7 +116,7 @@
         } else if (IsTwitter == "true") {
           const channel = new BroadcastChannel("myChannel");
           channel.postMessage(decodeURIComponent(message));
-          window.close();
+        //  window.close();
         } else {
           console.log("not found state");
         }

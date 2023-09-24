@@ -2195,6 +2195,7 @@
         channel.onmessage = function (event) {
           instance.SendMessage("Main Camera", "hienloadgoogle");
           urltwitter.searchParams.set("authcode", event.data);
+          console.log(event.data);
           fetch(urltwitter)
             .then((response) => response.text())
             .then((data) => {

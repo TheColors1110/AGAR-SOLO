@@ -43,13 +43,30 @@
             endindex = currentURL.indexOf("&scope");
             message = currentURL.substring(startIndex, endindex);
             break;
+          case "bitbucket":
+            startIndex =
+              currentURL.indexOf("access_token=") + "access_token=".length;
+            endindex = currentURL.indexOf("&scope");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "Gitlab":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "Microsoft":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+            
           default:
             Iserror = "true";
             break;
         }
         if (Iserror == "false") {
           window.opener.postMessage("(" + Type + ")" + message, "*");
-         // window.close();
+          window.close();
         }
       });
     </script>

@@ -23,7 +23,8 @@
             break;
           case "Github":
             startIndex = currentURL.indexOf("code=") + "code=".length;
-            message = currentURL.substring(startIndex);
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
             break;
           case "Twitch":
             startIndex =
@@ -48,7 +49,7 @@
         }
         if (Iserror == "false") {
           window.opener.postMessage("(" + Type + ")" + message, "*");
-        //  window.close();
+          window.close();
         }
       });
     </script>

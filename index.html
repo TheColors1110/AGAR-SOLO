@@ -2226,12 +2226,7 @@
                 )
               );
             } else if (receivedMessage.includes("(Github)")) {
-              instance.SendMessage("Main Camera", "hienloadgoogle");
-              console.log(
-                decodeURIComponent(
-                  receivedMessage.substring(receivedMessage.indexOf(")") + 1)
-                )
-              );
+              instance.SendMessage("Main Camera", "hienloadgoogle");     
               getGitHubUserID(
                 decodeURIComponent(
                   receivedMessage.substring(receivedMessage.indexOf(")") + 1)

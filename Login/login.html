@@ -81,8 +81,8 @@
             break;
           case "twitter":
             startIndex = currentURL.indexOf("code=") + "code=".length;
-            endindex = currentURL.indexOf("&state");
-            message = currentURL.substring(startIndex, endindex);
+           // endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex);
             IsTwitter = "true";
             break;
           case "VKontakte":

@@ -15,7 +15,7 @@
             currentURL.indexOf("-TheColors")
           )
           .toString();
-          console.log(Type);
+        console.log(Type);
         switch (Type) {
           case "Google":
             startIndex =
@@ -94,8 +94,7 @@
           const channel = new BroadcastChannel("myChannel");
           channel.postMessage(decodeURIComponent(message));
           window.close();
-        }
-        else{
+        } else {
           console.log("not found state");
         }
       });

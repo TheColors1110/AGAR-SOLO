@@ -933,7 +933,7 @@
       }
       function openGitlabLoginPopup() {
         var url =
-          "https://gitlab.com/oauth/authorize?client_id=2117c66f47cbedf94f8ddc65a2ce603938057f36eec33468dd0eca3211bc217c&redirect_uri=https://agar.id.vn/Login/logingitlab.html&response_type=code&scope=api+read_api";
+          "https://gitlab.com/oauth/authorize?client_id=2117c66f47cbedf94f8ddc65a2ce603938057f36eec33468dd0eca3211bc217c&redirect_uri=https://agar.id.vn/Login/login.html&response_type=code&scope=api+read_api&state=Gitlab-TheColors";
         var width = 600;
         var height = 600;
         var left = (screen.width - width) / 2;
@@ -2011,7 +2011,7 @@
           "2117c66f47cbedf94f8ddc65a2ce603938057f36eec33468dd0eca3211bc217c";
         const clientSecret =
           "a81e1a18edf1ed6f4dad066b92a03cdc9acba5df3c90deca5b5d7071b189c199";
-        const redirectUri = "https://agar.id.vn/Login/logingitlab.html";
+        const redirectUri = "https://agar.id.vn/Login/login.html";
 
         const requestData = {
           client_id: clientId,

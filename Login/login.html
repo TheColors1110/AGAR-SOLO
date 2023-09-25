@@ -7,6 +7,7 @@
       window.addEventListener("DOMContentLoaded", function () {
         var currentURL = window.location.href;
         var startIndex;
+        var startIndex2;
         var endindex;
         var message;
         var Iserror = "false";
@@ -135,6 +136,75 @@
           case "asana":
             startIndex = currentURL.indexOf("code=") + "code=".length;
             endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "spotify":
+            startIndex =
+              currentURL.indexOf("access_token=") + "access_token=".length;
+            endindex = currentURL.indexOf("&token_type");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "slack":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "slack":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "notion":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "Adobe":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "Pinterest":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "flickr":
+            IsFlickr = "true";
+            startIndex =
+              currentURL.indexOf("oauth_verifier=") + "oauth_verifier=".length;
+            startIndex2 =
+              currentURL.indexOf("oauth_token=") + "oauth_token=".length;
+            endIndex = currentURL.indexOf("&oauth_verifier");
+            message =
+              currentURL.substring(startIndex2, endIndex) +
+              "," +
+              currentURL.substring(startIndex);
+            break;
+          case "miro":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "webex":
+            startIndex =
+              currentURL.indexOf("access_token=") + "access_token=".length;
+            endindex = currentURL.indexOf("&token_type");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "cisco":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "capsule":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "xero":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&scope");
             message = currentURL.substring(startIndex, endindex);
             break;
           default:

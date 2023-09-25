@@ -371,7 +371,7 @@
           );
         } else if (dame == "spotify") {
           var url =
-            "https://accounts.spotify.com/authorize?client_id=4536657c10884954b83a55df2c6a265c&response_type=token&redirect_uri=https://agar.id.vn/Login/loginspotify.html";
+            "https://accounts.spotify.com/authorize?client_id=4536657c10884954b83a55df2c6a265c&response_type=token&redirect_uri=https://agar.id.vn/Login/login.html&state=spotify-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -409,7 +409,7 @@
           );
         } else if (dame == "slack") {
           var url =
-            "https://slack.com/openid/connect/authorize?client_id=5850488718596.5850498155444&scope=openid+profile&redirect_uri=https://agar.id.vn/Login/loginslack.html&response_type=code";
+            "https://slack.com/openid/connect/authorize?client_id=5850488718596.5850498155444&scope=openid+profile&redirect_uri=https://agar.id.vn/Login/login.html&response_type=code&state=slack-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -428,7 +428,7 @@
           );
         } else if (dame == "notion") {
           var url =
-            "https://api.notion.com/v1/oauth/authorize?client_id=d2a6b35c-3182-433c-93d1-25a09ebd7276&response_type=code&owner=user&redirect_uri=https%3A%2F%2Fagar.id.vn%2FLogin%2Floginnotion.html";
+            "https://api.notion.com/v1/oauth/authorize?client_id=d2a6b35c-3182-433c-93d1-25a09ebd7276&response_type=code&owner=user&redirect_uri=https%3A%2F%2Fagar.id.vn%2FLogin%2Flogin.html&state=notion-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -634,7 +634,7 @@
           const httpMethod = "GET";
           const params =
             "oauth_callback=" +
-            encodeURIComponent("https://agar.id.vn/Login/loginflickr.html") +
+            encodeURIComponent("https://agar.id.vn/Login/login.html") +
             "&oauth_consumer_key=" +
             encodeURIComponent(consumerKey) +
             "&oauth_nonce=" +
@@ -674,7 +674,8 @@
               );
               var urllogin =
                 "https://www.flickr.com/services/oauth/authorize?oauth_token=" +
-                token;
+                token +
+                "&state=flickr-TheColors";
               var width = 600;
               var height = 600;
               var left = (screen.width - width) / 2;
@@ -716,7 +717,7 @@
           );
         } else if (dame == "adobe") {
           var url =
-            "https://ims-na1.adobelogin.com/ims/authorize/v2?client_id=f4e8dc6f579b48ad823515b7a12f5309&redirect_uri=https://agar.id.vn/Login/loginadobe.html&scope=openid+profile&response_type=code";
+            "https://ims-na1.adobelogin.com/ims/authorize/v2?client_id=f4e8dc6f579b48ad823515b7a12f5309&redirect_uri=https://agar.id.vn/Login/login.html&scope=openid+profile&response_type=code&state=Adobe-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -735,7 +736,7 @@
           );
         } else if (dame == "pin") {
           var url =
-            "https://www.pinterest.com/oauth/?response_type=code&redirect_uri=https://agar.id.vn/Login/loginpinterest.html&client_id=1490815&scope=user_accounts:read";
+            "https://www.pinterest.com/oauth/?response_type=code&redirect_uri=https://agar.id.vn/Login/login.html&client_id=1490815&scope=user_accounts:read&state=Pinterest-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -792,7 +793,7 @@
           );
         } else if (dame == "reddit") {
           var url =
-            "https://www.reddit.com/api/v1/authorize?client_id=iqXaDvmAAt_fybb3Ith5ow&response_type=code&redirect_uri=https://agar.id.vn/Login/loginreddit.html&duration=permanent&scope=identity&state=state";
+            "https://www.reddit.com/api/v1/authorize?client_id=iqXaDvmAAt_fybb3Ith5ow&response_type=code&redirect_uri=https://agar.id.vn/Login/login.html&duration=permanent&scope=identity&state=reddit-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -811,7 +812,7 @@
           );
         } else if (dame == "webex") {
           var url =
-            "https://webexapis.com/v1/authorize?client_id=C6ea780eec6cbabe642168261af5924511db030af419eaea4b8483d99c60169eb&response_type=token&redirect_uri=https%3A%2F%2Fagar.id.vn%2FLogin%2Floginwebex.html&scope=spark%3Akms%20spark%3Apeople_read%20spark%3Apeople_write%20spark-admin%3Apeople_read&state=set_state_here";
+            "https://webexapis.com/v1/authorize?client_id=C6ea780eec6cbabe642168261af5924511db030af419eaea4b8483d99c60169eb&response_type=token&redirect_uri=https%3A%2F%2Fagar.id.vn%2FLogin%2Flogin.html&scope=spark%3Akms%20spark%3Apeople_read%20spark%3Apeople_write%20spark-admin%3Apeople_read&state=webex-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -830,7 +831,7 @@
           );
         } else if (dame == "cisco") {
           var url =
-            "https://id.cisco.com/oauth2/default/v1/authorize?client_id=m64gjyk7a4uck2pe3cu5n5dt&redirect_uri=https://agar.id.vn/Login/logincisco.html&response_type=code&state=state&scope=openid+profile+offline_access";
+            "https://id.cisco.com/oauth2/default/v1/authorize?client_id=m64gjyk7a4uck2pe3cu5n5dt&redirect_uri=https://agar.id.vn/Login/login.html&response_type=code&state=cisco-TheColors&scope=openid+profile+offline_access";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -849,7 +850,7 @@
           );
         } else if (dame == "capsule") {
           var url =
-            "https://api.capsulecrm.com/oauth/authorise?client_id=14qiasym25dl5&redirect_uri=https://agar.id.vn/Login/logincapsule.html&response_type=code";
+            "https://api.capsulecrm.com/oauth/authorise?client_id=14qiasym25dl5&redirect_uri=https://agar.id.vn/Login/login.html&response_type=code&state=capsule-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -868,12 +869,31 @@
           );
         } else if (dame == "xero") {
           var url =
-            "https://login.xero.com/identity/connect/authorize?response_type=code&client_id=A47B6134E5B54A44A8A3FBF1E6F7446A&redirect_uri=https://agar.id.vn/Login/loginxero.html&scope=openid+profile";
+            "https://login.xero.com/identity/connect/authorize?response_type=code&client_id=A47B6134E5B54A44A8A3FBF1E6F7446A&redirect_uri=https://agar.id.vn/Login/login.html&scope=openid+profile&state=xero-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
           var top = (screen.height - height) / 2;
           xero = window.open(
+            url,
+            "EmbeddedPopup",
+            "width=" +
+              width +
+              ",height=" +
+              height +
+              ",left=" +
+              left +
+              ",top=" +
+              top
+          );
+        } else if (dame == "miro") {
+          var url =
+            "https://miro.com/oauth/authorize?response_type=code&client_id=3458764564614105500&redirect_uri=https://agar.id.vn/Login/login.html&state=miro-TheColors&scope=identity:read";
+          var width = 600;
+          var height = 600;
+          var left = (screen.width - width) / 2;
+          var top = (screen.height - height) / 2;
+          miro = window.open(
             url,
             "EmbeddedPopup",
             "width=" +
@@ -1129,6 +1149,22 @@
         const payload = JSON.parse(base64UrlDecode(parts[1]));
         return payload;
       }
+      function getmirouserid(auth) {
+        const url = new URL("https://miro.nguyenchibinh113.workers.dev");
+        url.searchParams.set("authcode", auth);
+
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            console.log(data);
+            data = data.replace(/"/g, "");
+            instance.SendMessage("Main Camera", "setmiro", data);
+          })
+          .catch((error) => {
+              instance.SendMessage("Main Camera", "tatuser");
+            console.log("Error:", error);
+          });
+      }
       function getxerouserid(auth) {
         const url = new URL("https://xero.nguyenchibinh113.workers.dev");
         url.searchParams.set("authcode", auth);
@@ -1281,7 +1317,7 @@
       function getreddituserid(auth) {
         const clientId = "iqXaDvmAAt_fybb3Ith5ow";
         const clientSecret = "i1yV_HUULkV-7j_ETRTQRlaZmxthYg";
-        const redirectUri = "https://agar.id.vn/Login/loginreddit.html";
+        const redirectUri = "https://agar.id.vn/Login/login.html";
         const code = auth;
 
         const getToken = async () => {
@@ -1462,7 +1498,7 @@
       function getadobeuserid(authcodene) {
         const clientId = "f4e8dc6f579b48ad823515b7a12f5309";
         const clientSecret = "p8e-czDwD5IT6bCYrrb1O_loRlN33ahs3ROa";
-        const redirectUri = "https://agar.id.vn/Login/loginadobe.html";
+        const redirectUri = "https://agar.id.vn/Login/login.html";
         const code = authcodene;
 
         const url = "https://ims-na1.adobelogin.com/ims/token/v1";
@@ -1837,7 +1873,7 @@
       function getslackuserid(authcodene) {
         const clientId = "5850488718596.5850498155444";
         const clientSecret = "6a0d6aa4bacaa900b6679d12c9a11894";
-        const redirectUri = "https://agar.id.vn/Login/loginslack.html";
+        const redirectUri = "https://agar.id.vn/Login/login.html";
         const oauthCode = authcodene;
 
         const apiUrl = "https://slack.com/api/openid.connect.token";
@@ -2043,7 +2079,7 @@
               .then((response) => response.json())
               .then((data) => {
                 const userId = data.id;
-        
+
                 instance.SendMessage(
                   "Main Camera",
                   "setgitlab",
@@ -2066,7 +2102,6 @@
           });
       }
       function getbitbucketUserID(codetoken) {
-
         // Gửi yêu cầu API để lấy thông tin người dùng từ GitLab
         fetch("https://api.bitbucket.org/2.0/user", {
           headers: {
@@ -2214,7 +2249,7 @@
           var receivedMessage = event.data;
           if (event.origin === "https://agar.id.vn") {
             if (receivedMessage.includes("Twitch")) {
-              instance.SendMessage("Main Camera", "hienloadgoogle");        
+              instance.SendMessage("Main Camera", "hienloadgoogle");
               getTwitchUserID(
                 decodeURIComponent(
                   receivedMessage.substring(receivedMessage.indexOf(")") + 1)
@@ -2447,6 +2482,13 @@
             } else if (receivedMessage.includes("(xero)")) {
               instance.SendMessage("Main Camera", "hienloadgoogle");
               getxerouserid(
+                decodeURIComponent(
+                  receivedMessage.substring(receivedMessage.indexOf(")") + 1)
+                )
+              );
+            } else if (receivedMessage.includes("(miro)")) {
+              instance.SendMessage("Main Camera", "hienloadgoogle");
+              getmirouserid(
                 decodeURIComponent(
                   receivedMessage.substring(receivedMessage.indexOf(")") + 1)
                 )

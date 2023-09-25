@@ -81,7 +81,7 @@
             break;
           case "twitter":
             startIndex = currentURL.indexOf("code=") + "code=".length;
-           // endindex = currentURL.indexOf("&state");
+            // endindex = currentURL.indexOf("&state");
             message = currentURL.substring(startIndex);
             IsTwitter = "true";
             break;
@@ -104,6 +104,37 @@
             startIndex =
               currentURL.indexOf("access_token=") + "access_token=".length;
             endindex = currentURL.indexOf("&token_type");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "line":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "kakaotalk":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "yahoo":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "dribbble":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "vimeo":
+            startIndex =
+              currentURL.indexOf("access_token=") + "access_token=".length;
+            endindex = currentURL.indexOf("&token_type");
+            message = currentURL.substring(startIndex, endindex);
+            break;
+          case "asana":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            endindex = currentURL.indexOf("&state");
             message = currentURL.substring(startIndex, endindex);
             break;
           default:

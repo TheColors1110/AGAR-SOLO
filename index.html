@@ -257,7 +257,7 @@
           );
         } else if (dame == "yahoo") {
           var url =
-            "https://api.login.yahoo.com/oauth2/request_auth?client_id=dj0yJmk9MXpNbzdNNDVLV1loJmQ9WVdrOWIwOUhVV1pwWnpNbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTQ2&redirect_uri=https://agar.id.vn/Login/loginyahoo.html&response_type=code";
+            "https://api.login.yahoo.com/oauth2/request_auth?client_id=dj0yJmk9MXpNbzdNNDVLV1loJmQ9WVdrOWIwOUhVV1pwWnpNbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTQ2&redirect_uri=https://agar.id.vn/Login/login.html&response_type=code&state=yahoo-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -447,7 +447,7 @@
           );
         } else if (dame == "line") {
           var url =
-            "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=2000654210&redirect_uri=https://agar.id.vn/Login/loginline.html&state=abcde&scope=openid%20profile";
+            "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=2000654210&redirect_uri=https://agar.id.vn/Login/login.html&state=line-TheColors&scope=openid%20profile";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -466,7 +466,7 @@
           );
         } else if (dame == "dribbble") {
           var url =
-            "https://dribbble.com/oauth/authorize?client_id=7200632133043a01a7a0ec63a01b75957e2febbeb003c7c005517433c783e2ee&redirect_uri=https://agar.id.vn/Login/logindribbble.html&scope=public&response_type=code";
+            "https://dribbble.com/oauth/authorize?client_id=7200632133043a01a7a0ec63a01b75957e2febbeb003c7c005517433c783e2ee&redirect_uri=https://agar.id.vn/Login/login.html&scope=public&response_type=code&state=dribbble-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -485,7 +485,7 @@
           );
         } else if (dame == "vimeo") {
           var url =
-            "https://api.vimeo.com/oauth/authorize?client_id=6e11db9bc0a0e4278f9f7f8a0d5700a5bd33fd40&response_type=token&redirect_uri=https://agar.id.vn/Login/loginvimeo.html&state=abcde&scope=public+private";
+            "https://api.vimeo.com/oauth/authorize?client_id=6e11db9bc0a0e4278f9f7f8a0d5700a5bd33fd40&response_type=token&redirect_uri=https://agar.id.vn/Login/login.html&state=vimeo-TheColors&scope=public+private";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -504,7 +504,7 @@
           );
         } else if (dame == "asana") {
           var url =
-            "https://app.asana.com/-/oauth_authorize?response_type=code&client_id=1205447228205559&redirect_uri=https://agar.id.vn/Login/loginasana.html";
+            "https://app.asana.com/-/oauth_authorize?response_type=code&client_id=1205447228205559&redirect_uri=https://agar.id.vn/Login/login.html&state=asana-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -754,7 +754,7 @@
           );
         } else if (dame == "kakao") {
           var url =
-            "https://kauth.kakao.com/oauth/authorize/?client_id=7d8c067dbfb60b6a6646c7fd0d405d67&redirect_uri=https://agar.id.vn/Login/loginkakaotalk.html&response_type=code&scope=profile_nickname+openid+profile_image";
+            "https://kauth.kakao.com/oauth/authorize/?client_id=7d8c067dbfb60b6a6646c7fd0d405d67&redirect_uri=https://agar.id.vn/Login/login.html&response_type=code&scope=profile_nickname+openid+profile_image&state=kakaotalk-TheColors";
           var width = 600;
           var height = 600;
           var left = (screen.width - width) / 2;
@@ -1386,7 +1386,7 @@
       function getkakaouserid(authcodene) {
         const clientId = "7d8c067dbfb60b6a6646c7fd0d405d67";
         const clientSecret = "vmgzImHsoC6DJJa7WjTn9vDY42ltLE99";
-        const redirectUri = "https://agar.id.vn/Login/loginkakaotalk.html";
+        const redirectUri = "https://agar.id.vn/Login/login.html";
         const code = authcodene; // Thay thế bằng mã ủy quyền (authorization code) nhận được từ KakaoTalk OAuth
 
         const url = "https://kauth.kakao.com/oauth/token";
@@ -1747,7 +1747,7 @@
       function getlineuserid(authcodene) {
         const clientId = "2000654210";
         const clientSecret = "67ae934550211344595ca5ddfe6a63e0";
-        const redirectUri = "https://agar.id.vn/Login/loginline.html";
+        const redirectUri = "https://agar.id.vn/Login/login.html";
         const code = authcodene;
 
         const getToken = async () => {

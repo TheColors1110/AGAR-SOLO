@@ -229,7 +229,7 @@
           window.close();
         } else if (IsFlickr == "true") {
           window.opener.postMessage("(" + "flickr" + ")" + message, "*");
-          //window.close();
+          window.close();
         } else {
           console.log("not found state");
         }

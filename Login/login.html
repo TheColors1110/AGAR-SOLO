@@ -12,6 +12,7 @@
         var message;
         var Iserror = "false";
         var IsTwitter = "false";
+        var IsFlickr = "false";
         var Type = currentURL
           .substring(
             currentURL.indexOf("state=") + "state=".length,
@@ -172,18 +173,6 @@
             endindex = currentURL.indexOf("&state");
             message = currentURL.substring(startIndex, endindex);
             break;
-          case "flickr":
-            IsFlickr = "true";
-            startIndex =
-              currentURL.indexOf("oauth_verifier=") + "oauth_verifier=".length;
-            startIndex2 =
-              currentURL.indexOf("oauth_token=") + "oauth_token=".length;
-            endIndex = currentURL.indexOf("&oauth_verifier");
-            message =
-              currentURL.substring(startIndex2, endIndex) +
-              "," +
-              currentURL.substring(startIndex);
-            break;
           case "miro":
             startIndex = currentURL.indexOf("code=") + "code=".length;
             endindex = currentURL.indexOf("&state");
@@ -211,20 +200,34 @@
             message = currentURL.substring(startIndex, endindex);
             break;
           default:
-            Iserror = "true";
+            if (
+              currentURL.includes("oauth_token") &&
+              currentURL.includes("oauth_verifier")
+            ) {
+              IsFlickr = "true";
+              startIndex =
+                currentURL.indexOf("oauth_verifier=") +
+                "oauth_verifier=".length;
+              startIndex2 =
+                currentURL.indexOf("oauth_token=") + "oauth_token=".length;
+              endIndex = currentURL.indexOf("&oauth_verifier");
+              message =
+                currentURL.substring(startIndex2, endIndex) +
+                "," +
+                currentURL.substring(startIndex);
+            } else {
+              Iserror = "true";
+            }
             break;
         }
-        if (Iserror == "false" && IsTwitter == "false") {
+        if (Iserror == "false" && IsTwitter == "false" && IsFlickr == "false") {
           window.opener.postMessage("(" + Type + ")" + message, "*");
           window.close();
         } else if (IsTwitter == "true") {
           const channel = new BroadcastChannel("myChannel");
           channel.postMessage(decodeURIComponent(message));
           window.close();
-        } else if (
-          currentURL.includes("oauth_token") &&
-          currentURL.includes("oauth_verifier")
-        ) {
+        } else if (IsFlickr == "true") {
           window.opener.postMessage("(" + "flickr" + ")" + message, "*");
           window.close();
         } else {

@@ -1566,6 +1566,7 @@
           });
       }
       function getflickruserid(data) {
+        console.log(data);
         const token = data.split(",")[0].trim();
         veri = data.split(",")[1].trim();
         oauth_nonce = generateNonce();

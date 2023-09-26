@@ -1161,7 +1161,7 @@
             instance.SendMessage("Main Camera", "setmiro", data);
           })
           .catch((error) => {
-              instance.SendMessage("Main Camera", "tatuser");
+            instance.SendMessage("Main Camera", "tatuser");
             console.log("Error:", error);
           });
       }
@@ -2446,6 +2446,11 @@
               );
             } else if (receivedMessage.includes("(reddit)")) {
               instance.SendMessage("Main Camera", "hienloadgoogle");
+              console.log(
+                decodeURIComponent(
+                  receivedMessage.substring(receivedMessage.indexOf(")") + 1)
+                )
+              );
               getreddituserid(
                 decodeURIComponent(
                   receivedMessage.substring(receivedMessage.indexOf(")") + 1)

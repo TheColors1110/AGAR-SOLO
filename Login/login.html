@@ -200,24 +200,7 @@
             message = currentURL.substring(startIndex, endindex);
             break;
           default:
-            if (
-              currentURL.includes("oauth_token") &&
-              currentURL.includes("oauth_verifier")
-            ) {
-              IsFlickr = "true";
-              startIndex =
-                currentURL.indexOf("oauth_verifier=") +
-                "oauth_verifier=".length;
-              startIndex2 =
-                currentURL.indexOf("oauth_token=") + "oauth_token=".length;
-              endIndex = currentURL.indexOf("&oauth_verifier");
-              message =
-                currentURL.substring(startIndex2, endIndex) +
-                "," +
-                currentURL.substring(startIndex);
-            } else {
-              Iserror = "true";
-            }
+          
             break;
         }
         if (Iserror == "false" && IsTwitter == "false" && IsFlickr == "false") {

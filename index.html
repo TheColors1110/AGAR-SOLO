@@ -1351,52 +1351,52 @@
         // Gọi hàm để lấy access token
         getToken()
           .then((token) => {
-            const fetchUserinfo = async (accessToken) => {
-              const url = "https://oauth.reddit.com/api/v1/me";
+            // const fetchUserinfo = async (accessToken) => {
+            //   const url = "https://oauth.reddit.com/api/v1/me";
 
-              try {
-                const response = await fetch(url, {
-                  headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                    "User-Agent": "AGAR SOLO/1.0", // Thay "MyApp/1.0" bằng tên ứng dụng của bạn
-                  },
-                });
+            //   try {
+            //     const response = await fetch(url, {
+            //       headers: {
+            //         Authorization: `Bearer ${accessToken}`,
+            //         "User-Agent": "AGAR SOLO/1.0", // Thay "MyApp/1.0" bằng tên ứng dụng của bạn
+            //       },
+            //     });
 
-                if (!response.ok) {
-                  instance.SendMessage("Main Camera", "tatuser");
-                  throw new Error("Lỗi khi gọi API");
-                }
+            //     if (!response.ok) {
+            //       instance.SendMessage("Main Camera", "tatuser");
+            //       throw new Error("Lỗi khi gọi API");
+            //     }
 
-                const data = await response.json();
-                return data;
-              } catch (error) {
-                instance.SendMessage("Main Camera", "tatuser");
-                console.log(error);
-              }
-            };
+            //     const data = await response.json();
+            //     return data;
+            //   } catch (error) {
+            //     instance.SendMessage("Main Camera", "tatuser");
+            //     console.log(error);
+            //   }
+            // };
 
-            fetchUserinfo(token)
-              .then((data) => {
-                instance.SendMessage(
-                  "Main Camera",
-                  "setreddit",
-                  data.name.replace(/"/g, "") +
-                    ",(Reddit)" +
-                    data.id.replace(/"/g, "") +
-                    "," +
-                    data.icon_img
-                      .substring(
-                        0,
-                        data.icon_img.indexOf(".png") + ".png".length
-                      )
-                      .replace(/"/g, "")
-                );
-                // Xử lý dữ liệu người dùng
-              })
-              .catch((error) => {
-                instance.SendMessage("Main Camera", "tatuser");
-                console.log(error);
-              });
+            // fetchUserinfo(token)
+            //   .then((data) => {
+            //     instance.SendMessage(
+            //       "Main Camera",
+            //       "setreddit",
+            //       data.name.replace(/"/g, "") +
+            //         ",(Reddit)" +
+            //         data.id.replace(/"/g, "") +
+            //         "," +
+            //         data.icon_img
+            //           .substring(
+            //             0,
+            //             data.icon_img.indexOf(".png") + ".png".length
+            //           )
+            //           .replace(/"/g, "")
+            //     );
+            //     // Xử lý dữ liệu người dùng
+            //   })
+            //   .catch((error) => {
+            //     instance.SendMessage("Main Camera", "tatuser");
+            //     console.log(error);
+             // });
           })
           .catch((error) => {
             instance.SendMessage("Main Camera", "tatuser");

@@ -203,6 +203,16 @@
             startIndex = currentURL.indexOf("code=") + "code=".length;
             message = currentURL.substring(startIndex);
             break;
+          case "imgur":
+            startIndex =
+              currentURL.indexOf("&account_username=") +
+              "&account_username=".length;
+            endindex = currentURL.indexOf("&account_id");
+            message =
+              currentURL.substring(startIndex, endindex) +
+              "," +
+              currentURL.substring(endindex + "&account_id=".length);
+            break;
           default:
             if (
               currentURL.includes("oauth_token") &&

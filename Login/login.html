@@ -213,6 +213,10 @@
               "," +
               currentURL.substring(endindex + "&account_id=".length);
             break;
+          case "atlassian":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            message = currentURL.substring(startIndex);
+            break;
           default:
             if (
               currentURL.includes("oauth_token") &&

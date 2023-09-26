@@ -199,6 +199,10 @@
             endindex = currentURL.indexOf("&scope");
             message = currentURL.substring(startIndex, endindex);
             break;
+          case "mailchimp":
+            startIndex = currentURL.indexOf("code=") + "code=".length;
+            message = currentURL.substring(startIndex);
+            break;
           default:
             if (
               currentURL.includes("oauth_token") &&

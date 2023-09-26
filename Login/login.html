@@ -152,7 +152,7 @@
           case "reddit":
             startIndex = currentURL.indexOf("code=") + "code=".length;
             endindex = currentURL.indexOf("&state");
-            message = currentURL.substring(startIndex);
+            message = currentURL.substring(startIndex.replace("#_",""));
             break;
           case "notion":
             startIndex = currentURL.indexOf("code=") + "code=".length;
@@ -213,7 +213,7 @@
         }
         if (Iserror == "false" && IsTwitter == "false") {
           window.opener.postMessage("(" + Type + ")" + message, "*");
-          //window.close();
+          window.close();
         } else if (IsTwitter == "true") {
           const channel = new BroadcastChannel("myChannel");
           channel.postMessage(decodeURIComponent(message));

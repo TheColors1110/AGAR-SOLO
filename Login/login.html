@@ -149,10 +149,10 @@
             endindex = currentURL.indexOf("&state");
             message = currentURL.substring(startIndex, endindex);
             break;
-          case "slack":
+          case "reddit":
             startIndex = currentURL.indexOf("code=") + "code=".length;
             endindex = currentURL.indexOf("&state");
-            message = currentURL.substring(startIndex, endindex);
+            message = currentURL.substring(startIndex);
             break;
           case "notion":
             startIndex = currentURL.indexOf("code=") + "code=".length;

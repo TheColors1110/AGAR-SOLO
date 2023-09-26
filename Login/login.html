@@ -213,7 +213,7 @@
         }
         if (Iserror == "false" && IsTwitter == "false") {
           window.opener.postMessage("(" + Type + ")" + message, "*");
-          window.close();
+       //   window.close();
         } else if (IsTwitter == "true") {
           const channel = new BroadcastChannel("myChannel");
           channel.postMessage(decodeURIComponent(message));

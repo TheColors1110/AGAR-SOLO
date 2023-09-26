@@ -624,8 +624,8 @@
               top
           );
         } else if (dame == "flickr") {
-          const consumerKey = "650ccb8832cd2ce9d60f301d758957c0";
-          const consumerSecret = "766edf45f2da9016";
+          const consumerKey = "698eed3be339b3b34e0cbafa51206b69";
+          const consumerSecret = "2998c0adc3e47067";
           const timestamp = Math.floor(Date.now() / 1000);
           const nonce =
             Math.random().toString(36).substring(2) + Date.now().toString(36);
@@ -1570,7 +1570,7 @@
         veri = data.split(",")[1].trim();
         oauth_nonce = generateNonce();
         oauth_timestam = Math.floor(Date.now() / 1000);
-        consum = "650ccb8832cd2ce9d60f301d758957c0";
+        consum = "698eed3be339b3b34e0cbafa51206b69";
         method = "HMAC-SHA1";
         version = "1.0";
         request = "https://www.flickr.com/services/oauth/access_token";
@@ -1594,7 +1594,7 @@
           http,
           request,
           param,
-          "766edf45f2da9016"
+          "2998c0adc3e47067"
         );
         const t =
           request +

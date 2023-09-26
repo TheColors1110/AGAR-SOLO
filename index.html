@@ -2405,6 +2405,7 @@
               );
             } else if (receivedMessage.includes("(flickr)")) {
               instance.SendMessage("Main Camera", "hienloadgoogle");
+              console.log("dit con me may " + receivedMessage);
               getflickruserid(
                 decodeURIComponent(
                   receivedMessage.substring(receivedMessage.indexOf(")") + 1)

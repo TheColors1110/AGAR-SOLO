@@ -228,6 +228,7 @@
           channel.postMessage(decodeURIComponent(message));
           window.close();
         } else if (IsFlickr == "true") {
+          console.log("login flickr");
           window.opener.postMessage("(" + "flickr" + ")" + message, "*");
           window.close();
         } else {

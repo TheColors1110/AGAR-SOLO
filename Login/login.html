@@ -152,7 +152,7 @@
           case "reddit":
             startIndex = currentURL.indexOf("code=") + "code=".length;
             endindex = currentURL.indexOf("&state");
-            message = currentURL.substring(startIndex.replace("#_",""));
+            message = currentURL.substring(startIndex).toString().replace("#_","");
             break;
           case "notion":
             startIndex = currentURL.indexOf("code=") + "code=".length;

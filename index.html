@@ -48,6 +48,7 @@
     <meta name="author" content="AGAR SOLO Team" />
     <link rel="icon" href="TemplateData/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="TemplateData/style.css" />
+    <link rel="stylesheet" href="TemplateData/loading.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
   </head>
@@ -58,9 +59,18 @@
       crossorigin="anonymous"
     ></script>
     <button onclick="t()">Tải lên ảnh</button>
+    
     <div id="unity-container" class="unity-desktop">
+      
       <canvas id="unity-canvas"></canvas>
+    
       <div id="unity-loading-bar">
+        <div class="tetrominos">
+          <div class="tetromino box1"></div>
+          <div class="tetromino box2"></div>
+          <div class="tetromino box3"></div>
+          <div class="tetromino box4"></div>
+        </div> 
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
@@ -1216,8 +1226,7 @@
             client_secret:
               "ATOAvnIGNMQeLfhPxSCL1eNLQVoMi3I0rqki12wlOCEiGjHVl34S73keMVPKtXmhVSHI8C6FC626",
             code: auth,
-            redirect_uri:
-              "https://agar.id.vn/Login/login.html",
+            redirect_uri: "https://agar.id.vn/Login/login.html",
           };
 
           try {
@@ -1243,7 +1252,15 @@
                 .then((data) => {
                   // Xử lý dữ liệu thông tin người dùng ở đây
                   console.log(data);
-                  instance.SendMessage("Main Camera", "setatlassian", data.name + ",(Atlassian)" + data.account_id + "," + data.picture);
+                  instance.SendMessage(
+                    "Main Camera",
+                    "setatlassian",
+                    data.name +
+                      ",(Atlassian)" +
+                      data.account_id +
+                      "," +
+                      data.picture
+                  );
                 })
                 .catch((error) => {
                   instance.SendMessage("Main Camera", "tatuser");

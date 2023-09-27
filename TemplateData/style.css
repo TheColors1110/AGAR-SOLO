@@ -26,7 +26,7 @@ body {
   width: 100%;
   height: 100%;
 }
-#unity-loading-bar {
+/* #unity-loading-bar {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -35,7 +35,7 @@ body {
 }
 
 #unity-progress-bar-empty {
-  width: 50px;
+  width: 80px;
   height: 50px;
   margin-top: 200px;
   margin-left: 6.5px;
@@ -52,7 +52,7 @@ body {
   100% {
     transform: rotate(360deg);
   }
-}
+} */
 #unity-logo {
   top: 50%;
   width: auto;

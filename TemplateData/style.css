@@ -16,10 +16,10 @@ body {
 }
 
 #unity-canvas {
-        background: #67f66e;
+  background-image: url('unity-logo-dark.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 10px;
-   /* border: 1px solid #000000; */
-   /* 2FB4FF */
 }
 
 .unity-mobile #unity-canvas {
@@ -27,35 +27,39 @@ body {
   height: 100%;
 }
 #unity-loading-bar {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+#unity-progress-bar-empty {
+  width: 60px;
+  height: 60px;
+  margin-top: 200px;
+  margin-left: 6.5px;
+  border: 7px solid #ffffff;
+  border-top-color: #000000;
+  border-radius: 50%;
+  animation: progress-rotate 2s linear infinite;
+}
+
+@keyframes progress-rotate {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  #unity-progress-bar-empty {
-    width: 120px;
-    height: 120px;
-    margin-top: 10px;
-    margin-left: 6.5px;
-    border: 8px solid #ffffff;
-    border-top-color: #000000;
-    border-radius: 50%;
-    animation: progress-rotate 2s linear infinite;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  @keyframes progress-rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  /* #unity-logo {
-    top: 50%;
-    width: auto;
-    height: auto;
-    background: url("AGAR SOLO.png") no-repeat center;
-    background-size: auto;
-  } */
+}
+#unity-logo {
+  top: 50%;
+  width: auto;
+  height: auto;
+  background: url(".png") no-repeat center;
+  background-size: auto;
+}
 #unity-footer {
   position: relative;
 }

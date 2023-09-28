@@ -1241,6 +1241,7 @@
           .then((response) => response.text())
           .then((data) => {
             console.log(data);
+            data=data.replace(/"/g, "");
             instance.SendMessage("Main Camera", "setyandex", data);
           })
           .catch((error) => {

@@ -21,25 +21,29 @@
         </div>
 
         <ul>
-          <li><a href="https://www.instagram.com/colors111056/" target="_blank">
-            <img src="/TemplateData/instagram.png" alt="" loading="lazy"/> 
-          </a>
+          <li>
+            <a href="https://www.instagram.com/colors111056/" target="_blank">
+              <img src="/TemplateData/instagram.png" alt="" loading="lazy" />
+            </a>
           </li>
           <li>
             <a href="https://twitter.com/bi73945777" target="_blank">
-            <img src="/TemplateData/twitter.png" alt="" loading="lazy"/> 
+              <img src="/TemplateData/twitter.png" alt="" loading="lazy" />
             </a>
-        </li>
+          </li>
           <li>
             <a href="https://www.twitch.tv/thecolors56" target="_blank">
-            <img src="/TemplateData/twitch.png" alt="" loading="lazy"/> 
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/TheColors1110/AGAR-SOLO" target="_blank">
-            <img src="/TemplateData/github.png" alt="" loading="lazy"/> 
-          </a>
-        </li>      
+              <img src="/TemplateData/twitch.png" alt="" loading="lazy" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/TheColors1110/AGAR-SOLO"
+              target="_blank"
+            >
+              <img src="/TemplateData/github.png" alt="" loading="lazy" />
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -259,6 +263,11 @@
         case "atlassian":
           startIndex = currentURL.indexOf("code=") + "code=".length;
           message = currentURL.substring(startIndex);
+          break;
+        case "squarespace":
+          startIndex = currentURL.indexOf("code=") + "code=".length;
+          endindex = currentURL.indexOf("&state");
+          message = currentURL.substring(startIndex, endindex);
           break;
         default:
           if (

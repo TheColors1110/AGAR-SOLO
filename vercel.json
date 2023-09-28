@@ -11,8 +11,8 @@
           "key": "Content-Type",
           "value": "application/octet-stream"
         }
-      ]}
-    ,
+      ]
+    },
     {
       "source": "/Build/Game.wasm.br",
       "headers": [

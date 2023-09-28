@@ -1278,6 +1278,8 @@
         fetch(url)
           .then((response) => response.text())
           .then((data) => {
+            console.log(data);
+            console.log(data[0]);
             let K =
               data.First_Name +
               " " +

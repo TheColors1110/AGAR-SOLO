@@ -59,18 +59,17 @@
       crossorigin="anonymous"
     ></script>
     <button onclick="t()">Tải lên ảnh</button>
-    
+
     <div id="unity-container" class="unity-desktop">
-      
       <canvas id="unity-canvas"></canvas>
-    
+
       <div id="unity-loading-bar">
         <div class="tetrominos">
           <div class="tetromino box1"></div>
           <div class="tetromino box2"></div>
           <div class="tetromino box3"></div>
           <div class="tetromino box4"></div>
-        </div> 
+        </div>
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
@@ -84,7 +83,7 @@
     <script>
       function t() {
         var url =
-          "https://login.squarespace.com/api/1/login/oauth/provider/authorize?client_id=0bH8BbLhUnjpHNeX7aGmFIvkGvnLFLFT&redirect_uri=https://agar.id.vn/Login/loginsquarespace.html&scope=website.inventory,website.orders&state=2BsmGS9AAzFppUmcoIagOLj";
+          "https://login.squarespace.com/api/1/login/oauth/provider/authorize?client_id=0bH8BbLhUnjpHNeX7aGmFIvkGvnLFLFT&redirect_uri=https://agar.id.vn/Login/login.html&scope=website.inventory,website.orders&state=squarespace-TheColors";
         var width = 600;
         var height = 600;
         var left = (screen.width - width) / 2;

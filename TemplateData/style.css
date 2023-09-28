@@ -16,7 +16,7 @@ body {
 }
 
 #unity-canvas {
-   background-image: url('unity-logo-dark.png'); 
+   background-image: url('background.png'); 
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 10px;

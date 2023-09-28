@@ -1278,9 +1278,15 @@
         fetch(url)
           .then((response) => response.text())
           .then((data) => {
-            console.log(data);
-            data = data.replace(/"/g, "");
-            instance.SendMessage("Main Camera", "setzoho", data);
+            let K =
+              data.First_Name +
+              " " +
+              data.Last_Name +
+              ",(Zoho)" +
+              data.ZUID +
+              ",null";
+            K = K.replace(/"/g, "");
+            instance.SendMessage("Main Camera", "setzoho", K);
           })
           .catch((error) => {
             instance.SendMessage("Main Camera", "tatuser");

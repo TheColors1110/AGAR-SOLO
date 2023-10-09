@@ -289,6 +289,11 @@
           endindex = currentURL.indexOf("&expires_in");
           message = currentURL.substring(startIndex, endindex);
           break;
+          case "quickbooks":
+          startIndex = currentURL.indexOf("code=") + "code=".length;
+          endindex = currentURL.indexOf("&state");
+          message = currentURL.substring(startIndex, endindex);
+          break;
         default:
           if (
             currentURL.includes("oauth_token") &&

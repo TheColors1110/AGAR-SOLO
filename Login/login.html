@@ -284,6 +284,11 @@
           endindex = currentURL.indexOf("&location");
           message = currentURL.substring(startIndex, endindex);
           break;
+        case "ebay":
+          startIndex = currentURL.indexOf("code=") + "code=".length;
+          endindex = currentURL.indexOf("&expires_in");
+          message = currentURL.substring(startIndex, endindex);
+          break;
         default:
           if (
             currentURL.includes("oauth_token") &&

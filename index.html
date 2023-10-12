@@ -2618,7 +2618,7 @@
         };
 
         window.addEventListener("message", function (event) {
-          console.log("nhan tin hieu");
+          console.log(event.data + " " + event.origin);
           var receivedMessage = event.data;
           if (event.origin === "https://agar.id.vn") {
             if (receivedMessage.includes("Twitch")) {

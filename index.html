@@ -2,6 +2,10 @@
 <html lang="en-us">
   <head>
     <script
+      type="text/javascript"
+      src="https://cdn.applixir.com/applixir.sdk3.0m.js"
+    ></script>
+    <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832461201977627"
       crossorigin="anonymous"
@@ -51,8 +55,28 @@
     <link rel="stylesheet" href="TemplateData/loading.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script type="text/javascript">
+      function a() {
+        // Thực hiện các hành động trong hàm a() tại đây
+        console.log("Hàm a đã được gọi!");
+      }
+    </script>
   </head>
   <body>
+    <div id="applixir_vanishing_div" hidden>
+      <iframe id="applixir_parent"></iframe>
+    </div>
+    <button type="button" id="showRewardAdButton">ShowAd</button>
+    <script>
+      showRewardAdButton.onClick = function () {
+        const options = {
+          zoneId: 6025,
+          userId: UUID4,
+          adStatusCb: adStatusCallback,
+        };
+        invokeApplixirVideoUnit(options); //play the video ad
+      };
+    </script>
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832461201977627"

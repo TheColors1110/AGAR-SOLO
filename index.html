@@ -2,6 +2,10 @@
 <html lang="en-us">
   <head>
     <script
+      type="text/javascript"
+      src="https://cdn.applixir.com/applixir.sdk3.0m.js"
+    ></script>
+    <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832461201977627"
       crossorigin="anonymous"
@@ -53,37 +57,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
   </head>
   <body>
-    <button type="button" id="playButton">Watch Video</button>
-    <script
-      type="text/javascript"
-      src="https://cdn.applixir.com/applixir.sdk3.0m.js"
-    ></script>
     <div id="applixir_vanishing_div" hidden>
-      <iframe id="applixir_parent" sandbox="allow-scripts"></iframe>
+      <iframe id="applixir_parent" allow="autoplay"></iframe>
     </div>
-
-    <script type="application/javascript">
+    <input type="button" value="press to invoke" onclick="watchit()" />
+    <script type="text/javascript">
       function adStatusCallback(status) {
-        // Status Callback Method
-        console.log("Ad Status: " + status);
+        console.log("Applixir status: " + status);
       }
-
+      function generateUUID() {
+        return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+          /[xy]/g,
+          function (c) {
+            var r = (Math.random() * 16) | 0,
+              v = c === "x" ? r : (r & 0x3) | 0x8;
+            return v.toString(16);
+          }
+        );
+      }
       var options = {
-        // Video Ad Options
-        zoneId: 2050,
-        accountId: 7691, // Required field for RMS
-        gameId: 8199, // Required field for RMS
+        // see online documentation for additional informaiton
+        zoneId: 2050, // required: the zone ID from the "Games" page
+        accountId: 7691, // optional: your account ID (required for RMS)
+        gameId: 8202, // optional: the ID for this game from the "Games"
+        dMode: 1, // 0 for no MD5 checksum, 1 for MD5 checksum (recommended)
+        fallback: 1, // 0 for no fallbacks, 1 will show fallback ads when ads-unavailable
+        verbosity: 10,
+        userId: generateUUID(), // required: UUID value for current customer (required for targeted ads - UUID4 recommended) // optional: custom value for RMS - use to provide additional reward information
         adStatusCb: adStatusCallback,
-        userId: "f47ac10b-58cc-4372-a567-0e02b2c3d479", // UUID4 recommended
       };
-      playBtn = document.getElementById("playButton");
-      playBtn.onclick = function () {
-        invokeApplixirVideoUnit(options); // Invoke Video ad
-        console.log("click");
-      };
+
+      function watchit() {
+        invokeApplixirVideoUnit(options);
+      }
     </script>
 
-   
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832461201977627"

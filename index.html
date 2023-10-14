@@ -64,6 +64,12 @@
     <script type="text/javascript">
       function adStatusCallback(status) {
         console.log("Applixir status: " + status);
+        if (status == "ad-blocker") {
+          instance.SendMessage("logged", "adblocker");
+        }
+        else if(status == "fb-started" || status == "ad-started"){
+          instance.SendMessage("logged", "adwatching");
+        }
       }
       function generateUUID() {
         return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
@@ -82,7 +88,10 @@
         gameId: 8202, // optional: the ID for this game from the "Games"
         dMode: 1, // 0 for no MD5 checksum, 1 for MD5 checksum (recommended)
         fallback: 1, // 0 for no fallbacks, 1 will show fallback ads when ads-unavailable
-        verbosity: 10,
+        verbosity: 0,
+        endMsg: 1,
+        maxAdt: 11,
+        btnDelay: 11,
         userId: generateUUID(), // required: UUID value for current customer (required for targeted ads - UUID4 recommended) // optional: custom value for RMS - use to provide additional reward information
         adStatusCb: adStatusCallback,
       };

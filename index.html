@@ -65,10 +65,10 @@
       function adStatusCallback(status) {
         console.log("Applixir status: " + status);
         if (status == "ad-blocker") {
-          instance.SendMessage("logged", "adblocker");
+     //     instance.SendMessage("logged", "adblocker");
         }
         else if(status == "fb-started" || status == "ad-started"){
-          instance.SendMessage("logged", "adwatching");
+      //    instance.SendMessage("logged", "adwatching");
         }
       }
       function generateUUID() {

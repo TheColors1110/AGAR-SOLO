@@ -66,14 +66,11 @@
         console.log("Applixir status: " + status);
         if (status == "ad-blocker") {
           instance.SendMessage("logged", "adblocker");
-        }
-       else if(status == "ads-unavailable"){
+        } else if (status == "ads-unavailable") {
           instance.SendMessage("logged", "noadsavailable");
-        }
-        else if(status == "fb-started" || status == "ad-started"){
-         instance.SendMessage("logged", "adwatching");
-        }
-        else if(status == "ad-rewarded"){
+        } else if (status == "fb-started" || status == "ad-started") {
+          instance.SendMessage("logged", "adwatching");
+        } else if (status == "ad-rewarded") {
           instance.SendMessage("logged", "adreward");
         }
       }
@@ -97,9 +94,9 @@
         verbosity: 0,
         endMsg: 1,
         maxAdt: 31,
-        btnDelay: 12,
-        vSize: 'max',
-        vSizeM: 'max',
+        btnDelay: 31,
+        vSize: "800x600 ",
+        vSizeM: "max",
         userId: generateUUID(), // required: UUID value for current customer (required for targeted ads - UUID4 recommended) // optional: custom value for RMS - use to provide additional reward information
         adStatusCb: adStatusCallback,
       };

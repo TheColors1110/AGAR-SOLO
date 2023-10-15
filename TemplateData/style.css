@@ -4,6 +4,9 @@ body {
 }
 #unity-container {
   position: absolute;
+  border: 2px solid black;
+  border-radius: 10px;
+
 }
 #unity-container.unity-desktop {
   left: 50%;
@@ -50,12 +53,7 @@ body {
   font-family: arial;
   font-size: 18px;
 }
-#unity-fullscreen-button {
-  float: right;
-  width: 38px;
-  height: 38px;
-  background: url("fullscreen-button.png") no-repeat center;
-}
+
 #unity-warning {
   position: absolute;
   left: 50%;

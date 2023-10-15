@@ -67,9 +67,9 @@
         if (status == "ad-blocker") {
           instance.SendMessage("logged", "adblocker");
         }
-       // else if(status == "ads-unavailable"){
-       //   instance.SendMessage("logged", "adblocker");
-      //  }
+       else if(status == "ads-unavailable"){
+          instance.SendMessage("logged", "noadsavailable");
+        }
         else if(status == "fb-started" || status == "ad-started"){
          instance.SendMessage("logged", "adwatching");
         }

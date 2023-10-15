@@ -65,10 +65,16 @@
       function adStatusCallback(status) {
         console.log("Applixir status: " + status);
         if (status == "ad-blocker") {
-     //     instance.SendMessage("logged", "adblocker");
+          instance.SendMessage("logged", "adblocker");
         }
+       // else if(status == "ads-unavailable"){
+       //   instance.SendMessage("logged", "adblocker");
+      //  }
         else if(status == "fb-started" || status == "ad-started"){
-      //    instance.SendMessage("logged", "adwatching");
+         instance.SendMessage("logged", "adwatching");
+        }
+        else if(status == "ad-rewarded"){
+          instance.SendMessage("logged", "adreward");
         }
       }
       function generateUUID() {
@@ -87,7 +93,7 @@
         accountId: 7691, // optional: your account ID (required for RMS)
         gameId: 8202, // optional: the ID for this game from the "Games"
         dMode: 1, // 0 for no MD5 checksum, 1 for MD5 checksum (recommended)
-        fallback: 1, // 0 for no fallbacks, 1 will show fallback ads when ads-unavailable
+        fallback: 0, // 0 for no fallbacks, 1 will show fallback ads when ads-unavailable
         verbosity: 0,
         endMsg: 1,
         maxAdt: 31,

@@ -15,9 +15,7 @@ body {
   height: 100%;
 }
 .applixir_iframe{
-  border-style: solid;
-  border-color: rgb(255, 0, 0);
-  border-width: thick;
+  border-radius: 10px;
 }
 #applixir_vanishing_div{
    z-index: 9999;

@@ -14,14 +14,14 @@ body {
   width: 100%;
   height: 100%;
 }
-.applixir_iframe{
+.applixir_iframe {
   border-radius: 10px;
 }
-#applixir_vanishing_div{
-   z-index: 9999;
+#applixir_vanishing_div {
+  z-index: 9999;
 }
 #unity-canvas {
-  background-image: url('backroundloading.jpg');  
+  background-image: url("backroundloading.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 10px;
